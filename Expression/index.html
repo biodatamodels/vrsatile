@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://biodatamodels.github.io/vrsatile/Expression/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Class: Expression - Experimental representation of vrsatile in LinkML</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Class: Expression";
+        var mkdocs_page_input_path = "Expression.md";
+        var mkdocs_page_url = "/vrsatile/Expression/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Experimental representation of vrsatile in LinkML
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Index</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Experimental representation of vrsatile in LinkML</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Class: Expression</li>
+    <li class="wy-breadcrumbs-aside">
+        <a href="https://github.com/biodatamodels/vrsatile/edit/master/docs/Expression.md"
+          class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="class-expression">Class: Expression</h1>
+<p><em>Representation of a variation by a specified nomenclature or syntax for a Variation object. Common examples of expressions for the description of molecular variation include the HGVS and ISCN nomenclatures.</em></p>
+<p>URI: <a href="https://example.org/GA4GHValueObjectDescriptorDefinitionsExpression">GA4GHValueObjectDescriptorDefinitions:Expression</a></p>
+<!-- no inheritance hierarchy -->
+
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Range</th>
+<th>Cardinality</th>
+<th>Description</th>
+<th>Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../vrs_type/">vrs_type</a></td>
+<td>NONE</td>
+<td>1..1</td>
+<td>MUST be "VariationMember"</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../syntax/">syntax</a></td>
+<td><a href="../SyntaxOptions/">SyntaxOptions</a></td>
+<td>1..1</td>
+<td>None</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../vrs_value/">vrs_value</a></td>
+<td>NONE</td>
+<td>1..1</td>
+<td>None</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../syntax_version/">syntax_version</a></td>
+<td>NONE</td>
+<td>0..1</td>
+<td>None</td>
+<td>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../VariationDescriptor/">VariationDescriptor</a></td>
+<td><a href="../expressions/">expressions</a></td>
+<td>range</td>
+<td>Expression</td>
+</tr>
+<tr>
+<td><a href="../VariationMember/">VariationMember</a></td>
+<td><a href="../expressions/">expressions</a></td>
+<td>range</td>
+<td>Expression</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h2 id="linkml-specification">LinkML Specification</h2>
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+<h3 id="direct">Direct</h3>
+<details>
+
+<pre><code class="language-yaml">name: Expression
+description: Representation of a variation by a specified nomenclature or syntax for
+  a Variation object. Common examples of expressions for the description of molecular
+  variation include the HGVS and ISCN nomenclatures.
+from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+slots:
+- vrs_type
+- syntax
+- vrs_value
+- syntax_version
+slot_usage:
+  vrs_type:
+    name: vrs_type
+    required: true
+  syntax:
+    name: syntax
+    range: syntax_options
+    required: true
+  vrs_value:
+    name: vrs_value
+    required: true
+  syntax_version:
+    name: syntax_version
+
+</code></pre>
+
+</details>
+
+<h3 id="induced">Induced</h3>
+<details>
+
+<pre><code class="language-yaml">name: Expression
+description: Representation of a variation by a specified nomenclature or syntax for
+  a Variation object. Common examples of expressions for the description of molecular
+  variation include the HGVS and ISCN nomenclatures.
+from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+slot_usage:
+  vrs_type:
+    name: vrs_type
+    required: true
+  syntax:
+    name: syntax
+    range: syntax_options
+    required: true
+  vrs_value:
+    name: vrs_value
+    required: true
+  syntax_version:
+    name: syntax_version
+attributes:
+  vrs_type:
+    name: vrs_type
+    description: MUST be &quot;VariationMember&quot;
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: vrs_type
+    owner: Expression
+    required: true
+  syntax:
+    name: syntax
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: syntax
+    owner: Expression
+    range: syntax_options
+    required: true
+  vrs_value:
+    name: vrs_value
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: vrs_value
+    owner: Expression
+    required: true
+  syntax_version:
+    name: syntax_version
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: syntax_version
+    owner: Expression
+
+</code></pre>
+
+</details>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/biodatamodels/vrsatile/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

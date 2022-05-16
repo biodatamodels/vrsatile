@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://biodatamodels.github.io/vrsatile/VcfRecord/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Class: VcfRecord - Experimental representation of vrsatile in LinkML</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Class: VcfRecord";
+        var mkdocs_page_input_path = "VcfRecord.md";
+        var mkdocs_page_url = "/vrsatile/VcfRecord/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Experimental representation of vrsatile in LinkML
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Index</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Experimental representation of vrsatile in LinkML</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Class: VcfRecord</li>
+    <li class="wy-breadcrumbs-aside">
+        <a href="https://github.com/biodatamodels/vrsatile/edit/master/docs/VcfRecord.md"
+          class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="class-vcfrecord">Class: VcfRecord</h1>
+<p><em>This data class is used when it is desirable to pass data as expected from a VCF record. The class is only used as an optional attribute within a VariationDescriptor. The Genotype field from a VCF should be captured by the <code>allelic_state</code> attribute in the Variation Descriptor.</em></p>
+<p>URI: <a href="https://example.org/GA4GHValueObjectDescriptorDefinitionsVcfRecord">GA4GHValueObjectDescriptorDefinitions:VcfRecord</a></p>
+<!-- no inheritance hierarchy -->
+
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Range</th>
+<th>Cardinality</th>
+<th>Description</th>
+<th>Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../genome_assembly/">genome_assembly</a></td>
+<td>NONE</td>
+<td>1..1</td>
+<td>Identifier for the genome assembly used to call the allele.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../chrom/">chrom</a></td>
+<td>NONE</td>
+<td>1..1</td>
+<td>A chromosome or contig identifier.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../pos/">pos</a></td>
+<td>NONE</td>
+<td>1..1</td>
+<td>The reference residue-coordinate position, with the first residue having position 1.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../id/">id</a></td>
+<td>NONE</td>
+<td>0..1</td>
+<td>A semicolon-separated list of unique identifiers where available. For example, dbSNP rsIDs. We RECOMMEND storing this information as a list in the VariationDescriptor <code>xrefs</code> field.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../ref/">ref</a></td>
+<td>NONE</td>
+<td>1..1</td>
+<td>Reference base as expected by the VCF specification.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../alt/">alt</a></td>
+<td>NONE</td>
+<td>1..1</td>
+<td>Alternate base as expected by the VCF specification.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../qual/">qual</a></td>
+<td>NONE</td>
+<td>0..1</td>
+<td>Quality: Phred-scaled quality score for the assertion made in ALT.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../filter/">filter</a></td>
+<td>NONE</td>
+<td>0..1</td>
+<td>Filter status: PASS if this position has passed all filters.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../info/">info</a></td>
+<td>NONE</td>
+<td>0..1</td>
+<td>Additional information: Semicolon-separated series of additional information fields.</td>
+<td>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../VariationDescriptor/">VariationDescriptor</a></td>
+<td><a href="../vcf_record/">vcf_record</a></td>
+<td>range</td>
+<td>VcfRecord</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h2 id="linkml-specification">LinkML Specification</h2>
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+<h3 id="direct">Direct</h3>
+<details>
+
+<pre><code class="language-yaml">name: VcfRecord
+description: This data class is used when it is desirable to pass data as expected
+  from a VCF record. The class is only used as an optional attribute within a VariationDescriptor.
+  The Genotype field from a VCF should be captured by the `allelic_state` attribute
+  in the Variation Descriptor.
+from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+slots:
+- genome_assembly
+- chrom
+- pos
+- id
+- ref
+- alt
+- qual
+- filter
+- info
+slot_usage:
+  genome_assembly:
+    name: genome_assembly
+    description: Identifier for the genome assembly used to call the allele.
+    required: true
+  chrom:
+    name: chrom
+    description: A chromosome or contig identifier.
+    required: true
+  pos:
+    name: pos
+    description: The reference residue-coordinate position, with the first residue
+      having position 1.
+    required: true
+  id:
+    name: id
+    description: A semicolon-separated list of unique identifiers where available.
+      For example, dbSNP rsIDs. We RECOMMEND storing this information as a list in
+      the VariationDescriptor `xrefs` field.
+  ref:
+    name: ref
+    description: Reference base as expected by the VCF specification.
+    required: true
+  alt:
+    name: alt
+    description: Alternate base as expected by the VCF specification.
+    required: true
+  qual:
+    name: qual
+    description: 'Quality: Phred-scaled quality score for the assertion made in ALT.'
+  filter:
+    name: filter
+    description: 'Filter status: PASS if this position has passed all filters.'
+  info:
+    name: info
+    description: 'Additional information: Semicolon-separated series of additional
+      information fields.'
+
+</code></pre>
+
+</details>
+
+<h3 id="induced">Induced</h3>
+<details>
+
+<pre><code class="language-yaml">name: VcfRecord
+description: This data class is used when it is desirable to pass data as expected
+  from a VCF record. The class is only used as an optional attribute within a VariationDescriptor.
+  The Genotype field from a VCF should be captured by the `allelic_state` attribute
+  in the Variation Descriptor.
+from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+slot_usage:
+  genome_assembly:
+    name: genome_assembly
+    description: Identifier for the genome assembly used to call the allele.
+    required: true
+  chrom:
+    name: chrom
+    description: A chromosome or contig identifier.
+    required: true
+  pos:
+    name: pos
+    description: The reference residue-coordinate position, with the first residue
+      having position 1.
+    required: true
+  id:
+    name: id
+    description: A semicolon-separated list of unique identifiers where available.
+      For example, dbSNP rsIDs. We RECOMMEND storing this information as a list in
+      the VariationDescriptor `xrefs` field.
+  ref:
+    name: ref
+    description: Reference base as expected by the VCF specification.
+    required: true
+  alt:
+    name: alt
+    description: Alternate base as expected by the VCF specification.
+    required: true
+  qual:
+    name: qual
+    description: 'Quality: Phred-scaled quality score for the assertion made in ALT.'
+  filter:
+    name: filter
+    description: 'Filter status: PASS if this position has passed all filters.'
+  info:
+    name: info
+    description: 'Additional information: Semicolon-separated series of additional
+      information fields.'
+attributes:
+  genome_assembly:
+    name: genome_assembly
+    description: Identifier for the genome assembly used to call the allele.
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: genome_assembly
+    owner: VcfRecord
+    required: true
+  chrom:
+    name: chrom
+    description: A chromosome or contig identifier.
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: chrom
+    owner: VcfRecord
+    required: true
+  pos:
+    name: pos
+    description: The reference residue-coordinate position, with the first residue
+      having position 1.
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: pos
+    owner: VcfRecord
+    required: true
+  id:
+    name: id
+    description: A semicolon-separated list of unique identifiers where available.
+      For example, dbSNP rsIDs. We RECOMMEND storing this information as a list in
+      the VariationDescriptor `xrefs` field.
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: id
+    owner: VcfRecord
+  ref:
+    name: ref
+    description: Reference base as expected by the VCF specification.
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: ref
+    owner: VcfRecord
+    required: true
+  alt:
+    name: alt
+    description: Alternate base as expected by the VCF specification.
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: alt
+    owner: VcfRecord
+    required: true
+  qual:
+    name: qual
+    description: 'Quality: Phred-scaled quality score for the assertion made in ALT.'
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: qual
+    owner: VcfRecord
+  filter:
+    name: filter
+    description: 'Filter status: PASS if this position has passed all filters.'
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: filter
+    owner: VcfRecord
+  info:
+    name: info
+    description: 'Additional information: Semicolon-separated series of additional
+      information fields.'
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: info
+    owner: VcfRecord
+
+</code></pre>
+
+</details>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/biodatamodels/vrsatile/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://biodatamodels.github.io/vrsatile/VariationDescriptor/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Class: VariationDescriptor - Experimental representation of vrsatile in LinkML</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Class: VariationDescriptor";
+        var mkdocs_page_input_path = "VariationDescriptor.md";
+        var mkdocs_page_url = "/vrsatile/VariationDescriptor/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Experimental representation of vrsatile in LinkML
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Index</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Experimental representation of vrsatile in LinkML</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Class: VariationDescriptor</li>
+    <li class="wy-breadcrumbs-aside">
+        <a href="https://github.com/biodatamodels/vrsatile/edit/master/docs/VariationDescriptor.md"
+          class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="class-variationdescriptor">Class: VariationDescriptor</h1>
+<p><em>This descriptor class is used for describing VRS Variation value objects.</em></p>
+<p>URI: <a href="https://example.org/GA4GHValueObjectDescriptorDefinitionsVariationDescriptor">GA4GHValueObjectDescriptorDefinitions:VariationDescriptor</a></p>
+<!-- no inheritance hierarchy -->
+
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Range</th>
+<th>Cardinality</th>
+<th>Description</th>
+<th>Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../id/">id</a></td>
+<td><a href="../CURIE/">CURIE</a></td>
+<td>1..1</td>
+<td>Descriptor ID; MUST be unique within document.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../vrs_type/">vrs_type</a></td>
+<td><a href="../TypeOptions/">TypeOptions</a></td>
+<td>1..1</td>
+<td>MUST be "VariationDescriptor".</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../label/">label</a></td>
+<td>NONE</td>
+<td>0..1</td>
+<td>A primary label for the value object.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../description/">description</a></td>
+<td>NONE</td>
+<td>0..1</td>
+<td>A free-text description of the value object.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../xrefs/">xrefs</a></td>
+<td><a href="../CURIE/">CURIE</a></td>
+<td>0..*</td>
+<td>None</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../alternate_labels/">alternate_labels</a></td>
+<td>NONE</td>
+<td>0..*</td>
+<td>None</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../extensions/">extensions</a></td>
+<td><a href="../Extension/">Extension</a></td>
+<td>0..*</td>
+<td>None</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../variation_id/">variation_id</a></td>
+<td><a href="../CURIE/">CURIE</a></td>
+<td>0..1</td>
+<td>This SHOULD be provided if <em>variation</em> is omitted.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="variation.md">variation</a></td>
+<td><a href="../Variation/">Variation</a></td>
+<td>1..1</td>
+<td>This SHOULD be provided if <em>variation_id</em> is omitted.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../molecule_context/">molecule_context</a></td>
+<td><a href="../MoleculeContextOptions/">MoleculeContextOptions</a></td>
+<td>0..1</td>
+<td>The molecular context of this variant. Must be one of "genomic", "transcript", or "protein".</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../structural_type/">structural_type</a></td>
+<td><a href="../CURIE/">CURIE</a></td>
+<td>0..1</td>
+<td>The structural variant type associated with this variant. We RECOMMEND a descendent term of <a href="http://www.sequenceontology.org/browser/current_release/term/SO:0001537">SO:0001537</a>.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../expressions/">expressions</a></td>
+<td><a href="../Expression/">Expression</a></td>
+<td>1..*</td>
+<td>Typically HGVS or ISCN nomenclature expressions. Other systems relevant to the description of variation MAY be used.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../vcf_record/">vcf_record</a></td>
+<td><a href="../VcfRecord/">VcfRecord</a></td>
+<td>0..1</td>
+<td>A VCF Record of the variant. This SHOULD be a single allele, the VCF genotype (GT) field should be represented in the <em>allelic_state</em> attribute.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../gene_context/">gene_context</a></td>
+<td>NONE</td>
+<td>0..1</td>
+<td>A specific gene context that applies to this variant.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../vrs_ref_allele_seq/">vrs_ref_allele_seq</a></td>
+<td><a href="../Sequence/">Sequence</a></td>
+<td>0..1</td>
+<td>A <code>VRS Sequence</code><em> corresponding to a "ref allele", describing the sequence expected at a <code>VRS SequenceLocation</code></em> reference.</td>
+<td>.</td>
+</tr>
+<tr>
+<td><a href="../allelic_state/">allelic_state</a></td>
+<td><a href="../CURIE/">CURIE</a></td>
+<td>0..1</td>
+<td>We RECOMMEND that the <em>allelic_state</em> of a variation be described by terms from the Genotype Ontology (GENO). These SHOULD descend from concept <code>GENO:0000875 &lt;http://purl.obolibrary.org/obo/GENO_0000875&gt;</code>.</td>
+<td>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h2 id="linkml-specification">LinkML Specification</h2>
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+<h3 id="direct">Direct</h3>
+<details>
+
+<pre><code class="language-yaml">name: VariationDescriptor
+description: This descriptor class is used for describing VRS Variation value objects.
+from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+slots:
+- id
+- vrs_type
+- label
+- description
+- xrefs
+- alternate_labels
+- extensions
+- variation_id
+- variation
+- molecule_context
+- structural_type
+- expressions
+- vcf_record
+- gene_context
+- vrs_ref_allele_seq
+- allelic_state
+slot_usage:
+  id:
+    name: id
+    description: Descriptor ID; MUST be unique within document.
+    range: CURIE
+    required: true
+  vrs_type:
+    name: vrs_type
+    description: MUST be &quot;VariationDescriptor&quot;.
+    range: type_options
+    required: true
+  label:
+    name: label
+    description: A primary label for the value object.
+  description:
+    name: description
+    description: A free-text description of the value object.
+  xrefs:
+    name: xrefs
+    multivalued: true
+    range: CURIE
+  alternate_labels:
+    name: alternate_labels
+    multivalued: true
+  extensions:
+    name: extensions
+    multivalued: true
+    range: Extension
+  variation_id:
+    name: variation_id
+    description: This SHOULD be provided if *variation* is omitted.
+    range: CURIE
+  variation:
+    name: variation
+    description: This SHOULD be provided if *variation_id* is omitted.
+    range: Variation
+  molecule_context:
+    name: molecule_context
+    description: The molecular context of this variant. Must be one of &quot;genomic&quot;,
+      &quot;transcript&quot;, or &quot;protein&quot;.
+    range: molecule_context_options
+  structural_type:
+    name: structural_type
+    description: The structural variant type associated with this variant. We RECOMMEND
+      a descendent term of [SO:0001537](http://www.sequenceontology.org/browser/current_release/term/SO:0001537).
+    range: CURIE
+  expressions:
+    name: expressions
+    description: Typically HGVS or ISCN nomenclature expressions. Other systems relevant
+      to the description of variation MAY be used.
+    range: Expression
+  vcf_record:
+    name: vcf_record
+    description: A VCF Record of the variant. This SHOULD be a single allele, the
+      VCF genotype (GT) field should be represented in the *allelic_state* attribute.
+    range: VcfRecord
+  gene_context:
+    name: gene_context
+    description: A specific gene context that applies to this variant.
+  vrs_ref_allele_seq:
+    name: vrs_ref_allele_seq
+    description: A `VRS Sequence`_ corresponding to a &quot;ref allele&quot;, describing the
+      sequence expected at a `VRS SequenceLocation`_ reference.
+    range: Sequence
+  allelic_state:
+    name: allelic_state
+    description: We RECOMMEND that the *allelic_state* of a variation be described
+      by terms from the Genotype Ontology (GENO). These SHOULD descend from concept
+      `GENO:0000875 &lt;http://purl.obolibrary.org/obo/GENO_0000875&gt;`.
+    range: CURIE
+
+</code></pre>
+
+</details>
+
+<h3 id="induced">Induced</h3>
+<details>
+
+<pre><code class="language-yaml">name: VariationDescriptor
+description: This descriptor class is used for describing VRS Variation value objects.
+from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+slot_usage:
+  id:
+    name: id
+    description: Descriptor ID; MUST be unique within document.
+    range: CURIE
+    required: true
+  vrs_type:
+    name: vrs_type
+    description: MUST be &quot;VariationDescriptor&quot;.
+    range: type_options
+    required: true
+  label:
+    name: label
+    description: A primary label for the value object.
+  description:
+    name: description
+    description: A free-text description of the value object.
+  xrefs:
+    name: xrefs
+    multivalued: true
+    range: CURIE
+  alternate_labels:
+    name: alternate_labels
+    multivalued: true
+  extensions:
+    name: extensions
+    multivalued: true
+    range: Extension
+  variation_id:
+    name: variation_id
+    description: This SHOULD be provided if *variation* is omitted.
+    range: CURIE
+  variation:
+    name: variation
+    description: This SHOULD be provided if *variation_id* is omitted.
+    range: Variation
+  molecule_context:
+    name: molecule_context
+    description: The molecular context of this variant. Must be one of &quot;genomic&quot;,
+      &quot;transcript&quot;, or &quot;protein&quot;.
+    range: molecule_context_options
+  structural_type:
+    name: structural_type
+    description: The structural variant type associated with this variant. We RECOMMEND
+      a descendent term of [SO:0001537](http://www.sequenceontology.org/browser/current_release/term/SO:0001537).
+    range: CURIE
+  expressions:
+    name: expressions
+    description: Typically HGVS or ISCN nomenclature expressions. Other systems relevant
+      to the description of variation MAY be used.
+    range: Expression
+  vcf_record:
+    name: vcf_record
+    description: A VCF Record of the variant. This SHOULD be a single allele, the
+      VCF genotype (GT) field should be represented in the *allelic_state* attribute.
+    range: VcfRecord
+  gene_context:
+    name: gene_context
+    description: A specific gene context that applies to this variant.
+  vrs_ref_allele_seq:
+    name: vrs_ref_allele_seq
+    description: A `VRS Sequence`_ corresponding to a &quot;ref allele&quot;, describing the
+      sequence expected at a `VRS SequenceLocation`_ reference.
+    range: Sequence
+  allelic_state:
+    name: allelic_state
+    description: We RECOMMEND that the *allelic_state* of a variation be described
+      by terms from the Genotype Ontology (GENO). These SHOULD descend from concept
+      `GENO:0000875 &lt;http://purl.obolibrary.org/obo/GENO_0000875&gt;`.
+    range: CURIE
+attributes:
+  id:
+    name: id
+    description: Descriptor ID; MUST be unique within document.
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: id
+    owner: VariationDescriptor
+    range: CURIE
+    required: true
+  vrs_type:
+    name: vrs_type
+    description: MUST be &quot;VariationDescriptor&quot;.
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: vrs_type
+    owner: VariationDescriptor
+    range: type_options
+    required: true
+  label:
+    name: label
+    description: A primary label for the value object.
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: label
+    owner: VariationDescriptor
+  description:
+    name: description
+    description: A free-text description of the value object.
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: description
+    owner: VariationDescriptor
+  xrefs:
+    name: xrefs
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    multivalued: true
+    alias: xrefs
+    owner: VariationDescriptor
+    range: CURIE
+  alternate_labels:
+    name: alternate_labels
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    multivalued: true
+    alias: alternate_labels
+    owner: VariationDescriptor
+  extensions:
+    name: extensions
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    multivalued: true
+    alias: extensions
+    owner: VariationDescriptor
+    range: Extension
+  variation_id:
+    name: variation_id
+    description: This SHOULD be provided if *variation* is omitted.
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: variation_id
+    owner: VariationDescriptor
+    range: CURIE
+  variation:
+    name: variation
+    description: This SHOULD be provided if *variation_id* is omitted.
+    from_schema: https://example.org/GA4GHCategoricalVariationDefinitions
+    alias: variation
+    owner: VariationDescriptor
+    range: Variation
+    required: true
+  molecule_context:
+    name: molecule_context
+    description: The molecular context of this variant. Must be one of &quot;genomic&quot;,
+      &quot;transcript&quot;, or &quot;protein&quot;.
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: molecule_context
+    owner: VariationDescriptor
+    range: molecule_context_options
+  structural_type:
+    name: structural_type
+    description: The structural variant type associated with this variant. We RECOMMEND
+      a descendent term of [SO:0001537](http://www.sequenceontology.org/browser/current_release/term/SO:0001537).
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: structural_type
+    owner: VariationDescriptor
+    range: CURIE
+  expressions:
+    name: expressions
+    description: Typically HGVS or ISCN nomenclature expressions. Other systems relevant
+      to the description of variation MAY be used.
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    multivalued: true
+    alias: expressions
+    owner: VariationDescriptor
+    range: Expression
+    required: true
+  vcf_record:
+    name: vcf_record
+    description: A VCF Record of the variant. This SHOULD be a single allele, the
+      VCF genotype (GT) field should be represented in the *allelic_state* attribute.
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: vcf_record
+    owner: VariationDescriptor
+    range: VcfRecord
+  gene_context:
+    name: gene_context
+    description: A specific gene context that applies to this variant.
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: gene_context
+    owner: VariationDescriptor
+  vrs_ref_allele_seq:
+    name: vrs_ref_allele_seq
+    description: A `VRS Sequence`_ corresponding to a &quot;ref allele&quot;, describing the
+      sequence expected at a `VRS SequenceLocation`_ reference.
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: vrs_ref_allele_seq
+    owner: VariationDescriptor
+    range: Sequence
+  allelic_state:
+    name: allelic_state
+    description: We RECOMMEND that the *allelic_state* of a variation be described
+      by terms from the Genotype Ontology (GENO). These SHOULD descend from concept
+      `GENO:0000875 &lt;http://purl.obolibrary.org/obo/GENO_0000875&gt;`.
+    from_schema: https://example.org/GA4GHValueObjectDescriptorDefinitions
+    alias: allelic_state
+    owner: VariationDescriptor
+    range: CURIE
+
+</code></pre>
+
+</details>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/biodatamodels/vrsatile/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
