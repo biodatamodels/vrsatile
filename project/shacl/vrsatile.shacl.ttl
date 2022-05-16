@@ -1,0 +1,807 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<GA4GHCategoricalVariationDefinitions:CanonicalVariation> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A categorical variation domain characterized by a representative Variation context  to which members lift-over, project, translate, or otherwise directly align." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class <GA4GHVRSDefinitions:Variation> ;
+            sh:description "The [VRS Variation](https://vrs.ga4gh.org/en/1.2.1/terms_and_model.html#variation) object to which congruency must be determined." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path <GA4GHCategoricalVariationDefinitions:variation> ],
+        [ sh:description "Categorical Variation Id. MUST be unique within document." ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path <GA4GHCategoricalVariationDefinitions:catvars_id> ],
+        [ sh:description "MUST be \"CanonicalVariation\"." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <GA4GHCategoricalVariationDefinitions:catvars_type> ] ;
+    sh:targetClass <GA4GHCategoricalVariationDefinitions:CanonicalVariation> .
+
+<GA4GHCategoricalVariationDefinitions:ComplexVariation> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A categorical variation domain jointly characterized by two or more other categorical  variation domains." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "MUST be \"ComplexVariation\"." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <GA4GHCategoricalVariationDefinitions:catvars_type> ],
+        [ sh:class <GA4GHCategoricalVariationDefinitions:CategoricalVariation> ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path <GA4GHCategoricalVariationDefinitions:operands> ],
+        [ sh:description "The logical operation applied to evaluating the object *operands*. MUST be \"AND\" or \"OR\"." ;
+            sh:in ( "AND" "OR" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path <GA4GHCategoricalVariationDefinitions:operator> ],
+        [ sh:description "Categorical Variation Id. MUST be unique within document." ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path <GA4GHCategoricalVariationDefinitions:catvars_id> ] ;
+    sh:targetClass <GA4GHCategoricalVariationDefinitions:ComplexVariation> .
+
+<GA4GHVRSDefinitions:Allele> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "The state of a molecule at a Location." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "An expression of the sequence state" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path <GA4GHVRSDefinitions:state> ],
+        [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:description "Variation Id. MUST be unique within document." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:_id> ],
+        [ sh:class <GA4GHVRSDefinitions:SequenceLocation> ;
+            sh:description "Where Allele is located" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path <GA4GHVRSDefinitions:location> ],
+        [ sh:description "MUST be \"Allele\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:type> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:Allele> .
+
+<GA4GHVRSDefinitions:ChromosomeLocation> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A Location on a chromosome defined by a species and chromosome name." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "MUST be \"ChromosomeLocation\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:type> ],
+        [ sh:class <GA4GHVRSDefinitions:CytobandInterval> ;
+            sh:description "The chromosome region defined by a CytobandInterval" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path <GA4GHVRSDefinitions:interval> ],
+        [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:description "CURIE representing a species from the [NCBI species taxonomy](https://registry.identifiers.org/registry/taxonomy). Default: \"taxonomy:9606\" (human)" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path <GA4GHVRSDefinitions:species_id> ],
+        [ sh:description "The symbolic chromosome name. For humans, For humans, chromosome names MUST be one of 1..22, X, Y (case-sensitive)" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path <GA4GHVRSDefinitions:chr> ],
+        [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:description "Location Id. MUST be unique within document." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:_id> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:ChromosomeLocation> .
+
+<GA4GHVRSDefinitions:ComposedSequenceExpression> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "An expression of a sequence composed from multiple other  Sequence Expressions  objects. MUST have at least one component that is not a  ref:`LiteralSequenceExpression`. CANNOT be composed from  nested composed sequence expressions." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "MUST be \"ComposedSequenceExpression\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:type> ],
+        [ sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:components> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:ComposedSequenceExpression> .
+
+<GA4GHVRSDefinitions:CopyNumber> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "The absolute count of discrete copies of a MolecularVariation, Feature, SequenceExpression, or a CURIE reference within a system (e.g. genome, cell, etc.)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "MUST be \"CopyNumber\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:type> ],
+        [ sh:description "The integral number of copies of the subject in a system" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path <GA4GHVRSDefinitions:copies> ],
+        [ sh:description "Subject of the Copy Number object" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path <GA4GHVRSDefinitions:subject> ],
+        [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:description "Variation Id. MUST be unique within document." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:_id> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:CopyNumber> .
+
+<GA4GHVRSDefinitions:DefiniteRange> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A bounded, inclusive range of numbers." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "MUST be \"DefiniteRange\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:type> ],
+        [ sh:description "The minimum value; inclusive" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:min> ],
+        [ sh:description "The maximum value; inclusive" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path <GA4GHVRSDefinitions:max> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:DefiniteRange> .
+
+<GA4GHVRSDefinitions:DerivedSequenceExpression> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "An approximate expression of a sequence that is derived from a referenced sequence location. Use of this class indicates that the derived sequence is *approximately equivalent* to the reference indicated, and is typically used for describing large regions in contexts where the use of an approximate sequence is inconsequential." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "A flag indicating if the expressed sequence is the reverse complement of the sequence referred to by `location`" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path <GA4GHVRSDefinitions:reverse_complement> ],
+        [ sh:description "MUST be \"DerivedSequenceExpression\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:type> ],
+        [ sh:class <GA4GHVRSDefinitions:SequenceLocation> ;
+            sh:description "The location from which the approximate sequence is derived" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:location> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:DerivedSequenceExpression> .
+
+<GA4GHVRSDefinitions:Feature> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A named entity that can be mapped to a Location. Genes, protein domains, exons, and chromosomes are some examples of common biological entities that may be Features." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass <GA4GHVRSDefinitions:Feature> .
+
+<GA4GHVRSDefinitions:Gene> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A reference to a Gene as defined by an authority. For human genes, the use of [hgnc](https://registry.identifiers.org/registry/hgnc) as the gene authority is RECOMMENDED." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:description "A CURIE reference to a Gene concept" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:gene_id> ],
+        [ sh:description "MUST be \"Gene\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:type> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:Gene> .
+
+<GA4GHVRSDefinitions:Haplotype> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A set of non-overlapping Allele members that co-occur on the same molecule." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path <GA4GHVRSDefinitions:members> ],
+        [ sh:description "MUST be \"Haplotype\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:type> ],
+        [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:description "Variation Id. MUST be unique within document." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:_id> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:Haplotype> .
+
+<GA4GHVRSDefinitions:IndefiniteRange> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A half-bounded range of numbers represented as a number bound and associated comparator. The bound operator is interpreted as follows: '>=' are all numbers greater than and including `value`, '<=' are all numbers less than and including `value`." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "The bounded value; inclusive" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:value> ],
+        [ sh:description "MUST be \"IndefiniteRange\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:type> ],
+        [ sh:description "MUST be one of \"<=\" or \">=\", indicating which direction the range is indefinite" ;
+            sh:in ( "<=" ">=" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path <GA4GHVRSDefinitions:comparator> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:IndefiniteRange> .
+
+<GA4GHVRSDefinitions:LiteralSequenceExpression> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "An explicit expression of a Sequence." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class <GA4GHVRSDefinitions:Sequence> ;
+            sh:description "the literal Sequence expressed" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:sequence> ],
+        [ sh:description "MUST be \"LiteralSequenceExpression\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:type> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:LiteralSequenceExpression> .
+
+<GA4GHVRSDefinitions:Location> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A contiguous segment of a biological sequence." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass <GA4GHVRSDefinitions:Location> .
+
+<GA4GHVRSDefinitions:MolecularVariation> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A variation on a contiguous molecule." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass <GA4GHVRSDefinitions:MolecularVariation> .
+
+<GA4GHVRSDefinitions:Number> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A simple integer value as a VRS class." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "The value represented by Number" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:value> ],
+        [ sh:description "MUST be \"Number\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:type> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:Number> .
+
+<GA4GHVRSDefinitions:RepeatedSequenceExpression> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "An expression of a sequence comprised of a tandem repeating subsequence." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "The count of repeated units, as an integer or inclusive range" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path <GA4GHVRSDefinitions:count> ],
+        [ sh:description "An expression of the repeating subsequence" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:seq_expr> ],
+        [ sh:description "MUST be \"RepeatedSequenceExpression\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:type> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:RepeatedSequenceExpression> .
+
+<GA4GHVRSDefinitions:Residue> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A character representing a specific residue (i.e., molecular species) or groupings of these (\"ambiguity codes\"), using [one-letter IUPAC abbreviations](https://en.wikipedia.org/wiki/International_Union_of_Pure_and_Applied_Chemistry#Amino_acid_and_nucleotide_base_codes) for nucleic acids and amino acids." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass <GA4GHVRSDefinitions:Residue> .
+
+<GA4GHVRSDefinitions:SequenceExpression> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "An expression describing a Sequence." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass <GA4GHVRSDefinitions:SequenceExpression> .
+
+<GA4GHVRSDefinitions:SequenceInterval> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A SequenceInterval represents a span on a Sequence. Positions are always represented by contiguous spans using interbase coordinates or coordinate ranges." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "MUST be \"SequenceInterval\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:type> ],
+        [ sh:description "The end coordinate or range of the interval. The minimum value of this coordinate or range is 0. MUST represent a coordinate or range greater than the value of `start`." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path <GA4GHVRSDefinitions:end> ],
+        [ sh:description "The start coordinate or range of the interval. The minimum value of this coordinate or range is 0. MUST represent a coordinate or range less than the value of `end`." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:start> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:SequenceInterval> .
+
+<GA4GHVRSDefinitions:SequenceState> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "DEPRECATED. A Sequence as a State. This is the State class to use for representing \"ref-alt\" style variation, including SNVs, MNVs, del, ins, and delins. This class is deprecated. Use LiteralSequenceExpression instead." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "MUST be \"SequenceState\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:type> ],
+        [ sh:class <GA4GHVRSDefinitions:Sequence> ;
+            sh:description "A string of Residues" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:sequence> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:SequenceState> .
+
+<GA4GHVRSDefinitions:SimpleInterval> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "DEPRECATED: A SimpleInterval represents a span of sequence. Positions are always represented by contiguous spans using interbase coordinates. This class is deprecated. Use SequenceInterval instead." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "The start coordinate" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:start> ],
+        [ sh:description "The end coordinate" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path <GA4GHVRSDefinitions:end> ],
+        [ sh:description "MUST be \"SimpleInterval\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:type> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:SimpleInterval> .
+
+<GA4GHVRSDefinitions:SystemicVariation> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A Variation of multiple molecules in the context of a system, e.g. a genome, sample, or homologous chromosomes." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass <GA4GHVRSDefinitions:SystemicVariation> .
+
+<GA4GHVRSDefinitions:Text> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A free-text definition of variation." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "A textual representation of variation not representable by other subclasses of Variation." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path <GA4GHVRSDefinitions:definition> ],
+        [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:description "Variation Id. MUST be unique within document." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:_id> ],
+        [ sh:description "MUST be \"Text\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:type> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:Text> .
+
+<GA4GHVRSDefinitions:UtilityVariation> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A collection of Variation subclasses that cannot be constrained to a specific class of biological variation, but are necessary for some applications of VRS." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass <GA4GHVRSDefinitions:UtilityVariation> .
+
+<GA4GHVRSDefinitions:VariationSet> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "An unconstrained set of Variation members." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "MUST be \"VariationSet\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:type> ],
+        [ sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path <GA4GHVRSDefinitions:members> ],
+        [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:description "Variation Id. MUST be unique within document." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:_id> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:VariationSet> .
+
+<https://example.org/GA4GHValueObjectDescriptorDefinitionsCategoricalVariationDescriptor> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "This descriptor class is used for describing Categorical Variation vrs_value objects." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsxrefs> ],
+        [ sh:description "MUST be \"VariationDescriptor\"." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type> ],
+        [ sh:description "The version of the Categorical Variation Descriptor." ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsversion> ],
+        [ sh:class <GA4GHCategoricalVariationDefinitions:CategoricalVariation> ;
+            sh:description "This SHOULD be provided if *variation_id* is omitted." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 9 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionscategorical_variation> ],
+        [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:description "Descriptor ID; MUST be unique within document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsid> ],
+        [ sh:class <https://example.org/GA4GHValueObjectDescriptorDefinitionsExtension> ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsextensions> ],
+        [ sh:class <https://example.org/GA4GHValueObjectDescriptorDefinitionsVariationMember> ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 10 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_members> ],
+        [ sh:order 5 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsalternate_labels> ],
+        [ sh:description "A free-text description of the value object." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsdescription> ],
+        [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:description "This SHOULD be provided if *categorical_variation* is omitted." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 8 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionscategorical_variation_id> ],
+        [ sh:description "A primary label for the value object." ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionslabel> ] ;
+    sh:targetClass <https://example.org/GA4GHValueObjectDescriptorDefinitionsCategoricalVariationDescriptor> .
+
+<https://example.org/GA4GHValueObjectDescriptorDefinitionsValueObjectDescriptor> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "The abstract *Value Object Descriptor* parent class. All attributes of this parent class are inherited by descendent classes." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass <https://example.org/GA4GHValueObjectDescriptorDefinitionsValueObjectDescriptor> .
+
+<https://example.org/GA4GHValueObjectDescriptorDefinitionsVariationDescriptor> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "This descriptor class is used for describing VRS Variation value objects." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:description "The structural variant type associated with this variant. We RECOMMEND a descendent term of [SO:0001537](http://www.sequenceontology.org/browser/current_release/term/SO:0001537)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 10 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsstructural_type> ],
+        [ sh:description "A specific gene context that applies to this variant." ;
+            sh:maxCount 1 ;
+            sh:order 13 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsgene_context> ],
+        [ sh:class <https://example.org/GA4GHValueObjectDescriptorDefinitionsVcfRecord> ;
+            sh:description "A VCF Record of the variant. This SHOULD be a single allele, the VCF genotype (GT) field should be represented in the *allelic_state* attribute." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 12 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsvcf_record> ],
+        [ sh:class <GA4GHVRSDefinitions:Sequence> ;
+            sh:description "A `VRS Sequence`_ corresponding to a \"ref allele\", describing the sequence expected at a `VRS SequenceLocation`_ reference." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 14 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_ref_allele_seq> ],
+        [ sh:order 5 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsalternate_labels> ],
+        [ sh:class <https://example.org/GA4GHValueObjectDescriptorDefinitionsExtension> ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsextensions> ],
+        [ sh:class <GA4GHVRSDefinitions:Variation> ;
+            sh:description "This SHOULD be provided if *variation_id* is omitted." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 8 ;
+            sh:path <GA4GHCategoricalVariationDefinitions:variation> ],
+        [ sh:description "A free-text description of the value object." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsdescription> ],
+        [ sh:class <https://example.org/GA4GHValueObjectDescriptorDefinitionsExpression> ;
+            sh:description "Typically HGVS or ISCN nomenclature expressions. Other systems relevant to the description of variation MAY be used." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 11 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsexpressions> ],
+        [ sh:description "MUST be \"VariationDescriptor\"." ;
+            sh:in ( "VariationDescriptor" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type> ],
+        [ sh:description "The molecular context of this variant. Must be one of \"genomic\", \"transcript\", or \"protein\"." ;
+            sh:in ( "genomic" "transcript" "protein" ) ;
+            sh:maxCount 1 ;
+            sh:order 9 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsmolecule_context> ],
+        [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:description "This SHOULD be provided if *variation* is omitted." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsvariation_id> ],
+        [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:description "Descriptor ID; MUST be unique within document." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsid> ],
+        [ sh:description "A primary label for the value object." ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionslabel> ],
+        [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsxrefs> ],
+        [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:description "We RECOMMEND that the *allelic_state* of a variation be described by terms from the Genotype Ontology (GENO). These SHOULD descend from concept `GENO:0000875 <http://purl.obolibrary.org/obo/GENO_0000875>`." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 15 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsallelic_state> ] ;
+    sh:targetClass <https://example.org/GA4GHValueObjectDescriptorDefinitionsVariationDescriptor> .
+
+<GA4GHVRSDefinitions:CytobandInterval> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A contiguous span on a chromosome defined by cytoband features. The span includes the constituent regions described by the start and end cytobands, as well as any intervening regions." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class <GA4GHVRSDefinitions:HumanCytoband> ;
+            sh:description "The start cytoband region. MUST specify a region nearer the terminal end (telomere) of the chromosome p-arm than `end`." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:start> ],
+        [ sh:description "MUST be \"CytobandInterval\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:type> ],
+        [ sh:class <GA4GHVRSDefinitions:HumanCytoband> ;
+            sh:description "The start cytoband region. MUST specify a region nearer the terminal end (telomere) of the chromosome q-arm than `start`." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path <GA4GHVRSDefinitions:end> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:CytobandInterval> .
+
+<https://example.org/GA4GHValueObjectDescriptorDefinitionsVariationMember> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A compact class for representing a variation context that is a member of a Categorical Variation. It supports one or more Expressions of a Variation and optionally an associated VRS ID." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "MUST be \"VariationMember\"" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type> ],
+        [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsvariation_id> ],
+        [ sh:class <https://example.org/GA4GHValueObjectDescriptorDefinitionsExpression> ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 1 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsexpressions> ] ;
+    sh:targetClass <https://example.org/GA4GHValueObjectDescriptorDefinitionsVariationMember> .
+
+<https://example.org/GA4GHValueObjectDescriptorDefinitionsVcfRecord> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "This data class is used when it is desirable to pass data as expected from a VCF record. The class is only used as an optional attribute within a VariationDescriptor. The Genotype field from a VCF should be captured by the `allelic_state` attribute in the Variation Descriptor." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "Alternate base as expected by the VCF specification." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 5 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsalt> ],
+        [ sh:description "The reference residue-coordinate position, with the first residue having position 1." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionspos> ],
+        [ sh:description "Additional information: Semicolon-separated series of additional information fields." ;
+            sh:maxCount 1 ;
+            sh:order 8 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsinfo> ],
+        [ sh:description "A semicolon-separated list of unique identifiers where available. For example, dbSNP rsIDs. We RECOMMEND storing this information as a list in the VariationDescriptor `xrefs` field." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsid> ],
+        [ sh:description "Filter status: PASS if this position has passed all filters." ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsfilter> ],
+        [ sh:description "A chromosome or contig identifier." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionschrom> ],
+        [ sh:description "Identifier for the genome assembly used to call the allele." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsgenome_assembly> ],
+        [ sh:description "Reference base as expected by the VCF specification." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 4 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsref> ],
+        [ sh:description "Quality: Phred-scaled quality score for the assertion made in ALT." ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsqual> ] ;
+    sh:targetClass <https://example.org/GA4GHValueObjectDescriptorDefinitionsVcfRecord> .
+
+<GA4GHCategoricalVariationDefinitions:CategoricalVariation> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A representation of a categorically-defined  [functional domain](https://en.wikipedia.org/wiki/Domain_of_a_function)  for variation, in which individual variation instances may be members." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass <GA4GHCategoricalVariationDefinitions:CategoricalVariation> .
+
+<GA4GHVRSDefinitions:HumanCytoband> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A character string representing cytobands derived from the *International System for Human Cytogenomic Nomenclature* (ISCN) [guidelines](http://doi.org/10.1159/isbn.978-3-318-06861-0)." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass <GA4GHVRSDefinitions:HumanCytoband> .
+
+<GA4GHVRSDefinitions:SequenceLocation> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A Location defined by an interval on a referenced Sequence." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:description "A VRS Computed Identifier for the reference Sequence." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path <GA4GHVRSDefinitions:sequence_id> ],
+        [ sh:description "Reference sequence region defined by a SequenceInterval." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path <GA4GHVRSDefinitions:interval> ],
+        [ sh:class <GA4GHVRSDefinitions:CURIE> ;
+            sh:description "Location Id. MUST be unique within document." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path <GA4GHVRSDefinitions:_id> ],
+        [ sh:description "MUST be \"SequenceLocation\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <GA4GHVRSDefinitions:type> ] ;
+    sh:targetClass <GA4GHVRSDefinitions:SequenceLocation> .
+
+<GA4GHVRSDefinitions:Variation> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A representation of the state of one or more biomolecules." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass <GA4GHVRSDefinitions:Variation> .
+
+<https://example.org/GA4GHValueObjectDescriptorDefinitionsExpression> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Representation of a variation by a specified nomenclature or syntax for a Variation object. Common examples of expressions for the description of molecular variation include the HGVS and ISCN nomenclatures." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "MUST be \"VariationMember\"" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type> ],
+        [ sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionssyntax_version> ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_value> ],
+        [ sh:in ( "hgvs.c" "hgvs.p" "hgvs.g" "hgvs.m" "hgvs.n" "hgvs.r" "iscn" "gnomad" "spdi" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionssyntax> ] ;
+    sh:targetClass <https://example.org/GA4GHValueObjectDescriptorDefinitionsExpression> .
+
+<https://example.org/GA4GHValueObjectDescriptorDefinitionsExtension> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "The Extension class provides VODs with a means to extend descriptions with other attributes unique to a content provider. These extensions are not expected to be natively understood under VRSATILE, but may be used for pre-negotiated exchange of message attributes when needed." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "Any primitive or structured object" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_value> ],
+        [ sh:description "A name for the Extension" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsname> ],
+        [ sh:description "MUST be \"Extension\"." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path <https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type> ] ;
+    sh:targetClass <https://example.org/GA4GHValueObjectDescriptorDefinitionsExtension> .
+
+<GA4GHVRSDefinitions:Sequence> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A character string of Residues that represents a biological sequence using the conventional sequence order (5’-to-3’ for nucleic acid sequences, and amino-to-carboxyl for amino acid sequences). IUPAC ambiguity codes are permitted in Sequences." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass <GA4GHVRSDefinitions:Sequence> .
+
+<GA4GHVRSDefinitions:CURIE> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A [W3C Compact URI](https://www.w3.org/TR/curie/) formatted string. A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass <GA4GHVRSDefinitions:CURIE> .
+

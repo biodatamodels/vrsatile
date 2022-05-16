@@ -1,0 +1,373 @@
+{
+   "_comments": "Auto generated from vrsatile.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2022-05-16T16:31:02\n    Schema: vrsatile\n    metamodel version: 1.7.0\n    model version: None\n    \n    id: https://example.org/vrsatile\n    description: \n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
+   "@context": {
+      "GA4GHCategoricalVariationDefinitions": {
+         "@id": "https://example.org/GA4GH-Categorical-Variation-Definitions",
+         "@prefix": true
+      },
+      "GA4GHVRSDefinitions": {
+         "@id": "https://example.org/GA4GHVRSDefinitions",
+         "@prefix": true
+      },
+      "GA4GHValueObjectDescriptorDefinitions": {
+         "@id": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+         "@prefix": true
+      },
+      "linkml": "https://w3id.org/linkml/",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "vrsatile": {
+         "@id": "https://example.org/vrsatile",
+         "@prefix": true
+      },
+      "@vocab": "https://example.org/vrsatile",
+      "_id": {
+         "@type": "@id",
+         "@id": "GA4GHVRSDefinitions:_id"
+      },
+      "allelic_state": {
+         "@type": "@id",
+         "@id": "GA4GHValueObjectDescriptorDefinitions:allelic_state"
+      },
+      "alt": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:alt"
+      },
+      "alternate_labels": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:alternate_labels"
+      },
+      "categorical_variation": {
+         "@type": "@id",
+         "@id": "GA4GHValueObjectDescriptorDefinitions:categorical_variation"
+      },
+      "categorical_variation_id": {
+         "@type": "@id",
+         "@id": "GA4GHValueObjectDescriptorDefinitions:categorical_variation_id"
+      },
+      "catvars_id": {
+         "@id": "GA4GHCategoricalVariationDefinitions:catvars_id"
+      },
+      "catvars_type": {
+         "@id": "GA4GHCategoricalVariationDefinitions:catvars_type"
+      },
+      "chr": {
+         "@id": "GA4GHVRSDefinitions:chr"
+      },
+      "chrom": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:chrom"
+      },
+      "comparator": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "GA4GHVRSDefinitions:comparator"
+      },
+      "components": {
+         "@id": "GA4GHVRSDefinitions:components"
+      },
+      "copies": {
+         "@id": "GA4GHVRSDefinitions:copies"
+      },
+      "count": {
+         "@id": "GA4GHVRSDefinitions:count"
+      },
+      "definition": {
+         "@id": "GA4GHVRSDefinitions:definition"
+      },
+      "description": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:description"
+      },
+      "end": {
+         "@type": "xsd:integer",
+         "@id": "GA4GHVRSDefinitions:end"
+      },
+      "expressions": {
+         "@type": "@id",
+         "@id": "GA4GHValueObjectDescriptorDefinitions:expressions"
+      },
+      "extensions": {
+         "@type": "@id",
+         "@id": "GA4GHValueObjectDescriptorDefinitions:extensions"
+      },
+      "filter": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:filter"
+      },
+      "gene_context": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:gene_context"
+      },
+      "gene_id": {
+         "@type": "@id",
+         "@id": "GA4GHVRSDefinitions:gene_id"
+      },
+      "genome_assembly": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:genome_assembly"
+      },
+      "id": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:id"
+      },
+      "info": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:info"
+      },
+      "interval": {
+         "@id": "GA4GHVRSDefinitions:interval"
+      },
+      "label": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:label"
+      },
+      "location": {
+         "@type": "@id",
+         "@id": "GA4GHVRSDefinitions:location"
+      },
+      "max": {
+         "@type": "xsd:float",
+         "@id": "GA4GHVRSDefinitions:max"
+      },
+      "members": {
+         "@id": "GA4GHVRSDefinitions:members"
+      },
+      "min": {
+         "@type": "xsd:float",
+         "@id": "GA4GHVRSDefinitions:min"
+      },
+      "molecule_context": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "GA4GHValueObjectDescriptorDefinitions:molecule_context"
+      },
+      "name": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:name"
+      },
+      "operands": {
+         "@type": "@id",
+         "@id": "GA4GHCategoricalVariationDefinitions:operands"
+      },
+      "operator": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "GA4GHCategoricalVariationDefinitions:operator"
+      },
+      "pos": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:pos"
+      },
+      "qual": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:qual"
+      },
+      "ref": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:ref"
+      },
+      "reverse_complement": {
+         "@type": "xsd:boolean",
+         "@id": "GA4GHVRSDefinitions:reverse_complement"
+      },
+      "seq_expr": {
+         "@id": "GA4GHVRSDefinitions:seq_expr"
+      },
+      "sequence": {
+         "@type": "@id",
+         "@id": "GA4GHVRSDefinitions:sequence"
+      },
+      "sequence_id": {
+         "@type": "@id",
+         "@id": "GA4GHVRSDefinitions:sequence_id"
+      },
+      "species_id": {
+         "@type": "@id",
+         "@id": "GA4GHVRSDefinitions:species_id"
+      },
+      "start": {
+         "@type": "xsd:integer",
+         "@id": "GA4GHVRSDefinitions:start"
+      },
+      "state": {
+         "@id": "GA4GHVRSDefinitions:state"
+      },
+      "structural_type": {
+         "@type": "@id",
+         "@id": "GA4GHValueObjectDescriptorDefinitions:structural_type"
+      },
+      "subject": {
+         "@id": "GA4GHVRSDefinitions:subject"
+      },
+      "syntax": {
+         "@context": {
+            "@vocab": "@null",
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "GA4GHValueObjectDescriptorDefinitions:syntax"
+      },
+      "syntax_version": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:syntax_version"
+      },
+      "type": {
+         "@id": "GA4GHVRSDefinitions:type"
+      },
+      "value": {
+         "@type": "xsd:float",
+         "@id": "GA4GHVRSDefinitions:value"
+      },
+      "variation": {
+         "@type": "@id",
+         "@id": "GA4GHCategoricalVariationDefinitions:variation"
+      },
+      "variation_id": {
+         "@type": "@id",
+         "@id": "GA4GHValueObjectDescriptorDefinitions:variation_id"
+      },
+      "vcf_record": {
+         "@type": "@id",
+         "@id": "GA4GHValueObjectDescriptorDefinitions:vcf_record"
+      },
+      "version": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:version"
+      },
+      "vrs_members": {
+         "@type": "@id",
+         "@id": "GA4GHValueObjectDescriptorDefinitions:vrs_members"
+      },
+      "vrs_ref_allele_seq": {
+         "@type": "@id",
+         "@id": "GA4GHValueObjectDescriptorDefinitions:vrs_ref_allele_seq"
+      },
+      "vrs_type": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:vrs_type"
+      },
+      "vrs_value": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:vrs_value"
+      },
+      "xrefs": {
+         "@type": "@id",
+         "@id": "GA4GHValueObjectDescriptorDefinitions:xrefs"
+      },
+      "Allele": {
+         "@id": "GA4GHVRSDefinitions:Allele"
+      },
+      "CanonicalVariation": {
+         "@id": "GA4GHCategoricalVariationDefinitions:CanonicalVariation"
+      },
+      "CategoricalVariation": {
+         "@id": "GA4GHCategoricalVariationDefinitions:CategoricalVariation"
+      },
+      "CategoricalVariationDescriptor": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:CategoricalVariationDescriptor"
+      },
+      "ChromosomeLocation": {
+         "@id": "GA4GHVRSDefinitions:ChromosomeLocation"
+      },
+      "ComplexVariation": {
+         "@id": "GA4GHCategoricalVariationDefinitions:ComplexVariation"
+      },
+      "ComposedSequenceExpression": {
+         "@id": "GA4GHVRSDefinitions:ComposedSequenceExpression"
+      },
+      "CopyNumber": {
+         "@id": "GA4GHVRSDefinitions:CopyNumber"
+      },
+      "CURIE": {
+         "@id": "GA4GHVRSDefinitions:CURIE"
+      },
+      "CytobandInterval": {
+         "@id": "GA4GHVRSDefinitions:CytobandInterval"
+      },
+      "DefiniteRange": {
+         "@id": "GA4GHVRSDefinitions:DefiniteRange"
+      },
+      "DerivedSequenceExpression": {
+         "@id": "GA4GHVRSDefinitions:DerivedSequenceExpression"
+      },
+      "Expression": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:Expression"
+      },
+      "Extension": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:Extension"
+      },
+      "Feature": {
+         "@id": "GA4GHVRSDefinitions:Feature"
+      },
+      "Gene": {
+         "@id": "GA4GHVRSDefinitions:Gene"
+      },
+      "Haplotype": {
+         "@id": "GA4GHVRSDefinitions:Haplotype"
+      },
+      "HumanCytoband": {
+         "@id": "GA4GHVRSDefinitions:HumanCytoband"
+      },
+      "IndefiniteRange": {
+         "@id": "GA4GHVRSDefinitions:IndefiniteRange"
+      },
+      "LiteralSequenceExpression": {
+         "@id": "GA4GHVRSDefinitions:LiteralSequenceExpression"
+      },
+      "Location": {
+         "@id": "GA4GHVRSDefinitions:Location"
+      },
+      "MolecularVariation": {
+         "@id": "GA4GHVRSDefinitions:MolecularVariation"
+      },
+      "Number": {
+         "@id": "GA4GHVRSDefinitions:Number"
+      },
+      "RepeatedSequenceExpression": {
+         "@id": "GA4GHVRSDefinitions:RepeatedSequenceExpression"
+      },
+      "Residue": {
+         "@id": "GA4GHVRSDefinitions:Residue"
+      },
+      "Sequence": {
+         "@id": "GA4GHVRSDefinitions:Sequence"
+      },
+      "SequenceExpression": {
+         "@id": "GA4GHVRSDefinitions:SequenceExpression"
+      },
+      "SequenceInterval": {
+         "@id": "GA4GHVRSDefinitions:SequenceInterval"
+      },
+      "SequenceLocation": {
+         "@id": "GA4GHVRSDefinitions:SequenceLocation"
+      },
+      "SequenceState": {
+         "@id": "GA4GHVRSDefinitions:SequenceState"
+      },
+      "SimpleInterval": {
+         "@id": "GA4GHVRSDefinitions:SimpleInterval"
+      },
+      "SystemicVariation": {
+         "@id": "GA4GHVRSDefinitions:SystemicVariation"
+      },
+      "Text": {
+         "@id": "GA4GHVRSDefinitions:Text"
+      },
+      "UtilityVariation": {
+         "@id": "GA4GHVRSDefinitions:UtilityVariation"
+      },
+      "ValueObjectDescriptor": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:ValueObjectDescriptor"
+      },
+      "Variation": {
+         "@id": "GA4GHVRSDefinitions:Variation"
+      },
+      "VariationDescriptor": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:VariationDescriptor"
+      },
+      "VariationMember": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:VariationMember"
+      },
+      "VariationSet": {
+         "@id": "GA4GHVRSDefinitions:VariationSet"
+      },
+      "VcfRecord": {
+         "@id": "GA4GHValueObjectDescriptorDefinitions:VcfRecord"
+      }
+   }
+}

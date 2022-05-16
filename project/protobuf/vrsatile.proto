@@ -1,0 +1,218 @@
+// The state of a molecule at a Location.
+message Allele
+ {
+  optional id CURIE = 1
+  type String = 2
+  location SequenceLocation = 3
+  state String = 4
+ }
+// A categorical variation domain characterized by a representative Variation context  to which members lift-over, project, translate, or otherwise directly align.
+message CanonicalVariation
+ {
+  optional catvarsId String = 1
+  catvarsType String = 2
+  variation Variation = 3
+ }
+// This descriptor class is used for describing Categorical Variation vrs_value objects.
+message CategoricalVariationDescriptor
+ {
+  id CURIE = 1
+  vrsType String = 2
+  optional label String = 3
+  optional description String = 4
+  repeated xrefs CURIE = 5
+  repeated alternateLabels String = 6
+  repeated extensions Extension = 7
+  optional version String = 8
+  optional categoricalVariationId CURIE = 9
+  optional categoricalVariation CategoricalVariation = 10
+  repeated vrsMembers VariationMember = 11
+ }
+// A Location on a chromosome defined by a species and chromosome name.
+message ChromosomeLocation
+ {
+  optional id CURIE = 1
+  type String = 2
+  speciesId CURIE = 3
+  chr String = 4
+  interval CytobandInterval = 5
+ }
+// A categorical variation domain jointly characterized by two or more other categorical  variation domains.
+message ComplexVariation
+ {
+  optional catvarsId String = 1
+  catvarsType String = 2
+  repeated operands CategoricalVariation = 3
+  operator OperatorOptions = 4
+ }
+// An expression of a sequence composed from multiple other  Sequence Expressions  objects. MUST have at least one component that is not a  ref:`LiteralSequenceExpression`. CANNOT be composed from  nested composed sequence expressions.
+message ComposedSequenceExpression
+ {
+  type String = 1
+  repeated components String = 2
+ }
+// The absolute count of discrete copies of a MolecularVariation, Feature, SequenceExpression, or a CURIE reference within a system (e.g. genome, cell, etc.).
+message CopyNumber
+ {
+  optional id CURIE = 1
+  type String = 2
+  subject String = 3
+  copies String = 4
+ }
+// A contiguous span on a chromosome defined by cytoband features. The span includes the constituent regions described by the start and end cytobands, as well as any intervening regions.
+message CytobandInterval
+ {
+  type String = 1
+  start HumanCytoband = 2
+  end HumanCytoband = 3
+ }
+// A bounded, inclusive range of numbers.
+message DefiniteRange
+ {
+  type String = 1
+  min Float = 2
+  max Float = 3
+ }
+// An approximate expression of a sequence that is derived from a referenced sequence location. Use of this class indicates that the derived sequence is *approximately equivalent* to the reference indicated, and is typically used for describing large regions in contexts where the use of an approximate sequence is inconsequential.
+message DerivedSequenceExpression
+ {
+  type String = 1
+  location SequenceLocation = 2
+  reverseComplement Boolean = 3
+ }
+// Representation of a variation by a specified nomenclature or syntax for a Variation object. Common examples of expressions for the description of molecular variation include the HGVS and ISCN nomenclatures.
+message Expression
+ {
+  vrsType String = 1
+  syntax SyntaxOptions = 2
+  vrsValue String = 3
+  optional syntaxVersion String = 4
+ }
+// The Extension class provides VODs with a means to extend descriptions with other attributes unique to a content provider. These extensions are not expected to be natively understood under VRSATILE, but may be used for pre-negotiated exchange of message attributes when needed.
+message Extension
+ {
+  vrsType String = 1
+  name String = 2
+  vrsValue String = 3
+ }
+// A reference to a Gene as defined by an authority. For human genes, the use of [hgnc](https://registry.identifiers.org/registry/hgnc) as the gene authority is RECOMMENDED.
+message Gene
+ {
+  type String = 1
+  geneId CURIE = 2
+ }
+// A set of non-overlapping Allele members that co-occur on the same molecule.
+message Haplotype
+ {
+  optional id CURIE = 1
+  type String = 2
+  repeated members String = 3
+ }
+// A half-bounded range of numbers represented as a number bound and associated comparator. The bound operator is interpreted as follows: '>=' are all numbers greater than and including `value`, '<=' are all numbers less than and including `value`.
+message IndefiniteRange
+ {
+  type String = 1
+  value Float = 2
+  comparator ComparatorOptions = 3
+ }
+// An explicit expression of a Sequence.
+message LiteralSequenceExpression
+ {
+  type String = 1
+  sequence Sequence = 2
+ }
+// A simple integer value as a VRS class.
+message Number
+ {
+  type String = 1
+  value Integer = 2
+ }
+// An expression of a sequence comprised of a tandem repeating subsequence.
+message RepeatedSequenceExpression
+ {
+  type String = 1
+  seqExpr String = 2
+  count String = 3
+ }
+// A SequenceInterval represents a span on a Sequence. Positions are always represented by contiguous spans using interbase coordinates or coordinate ranges.
+message SequenceInterval
+ {
+  type String = 1
+  start Integer = 2
+  end Integer = 3
+ }
+// A Location defined by an interval on a referenced Sequence.
+message SequenceLocation
+ {
+  optional id CURIE = 1
+  type String = 2
+  sequenceId CURIE = 3
+  interval String = 4
+ }
+// DEPRECATED. A Sequence as a State. This is the State class to use for representing "ref-alt" style variation, including SNVs, MNVs, del, ins, and delins. This class is deprecated. Use LiteralSequenceExpression instead.
+message SequenceState
+ {
+  type String = 1
+  sequence Sequence = 2
+ }
+// DEPRECATED: A SimpleInterval represents a span of sequence. Positions are always represented by contiguous spans using interbase coordinates. This class is deprecated. Use SequenceInterval instead.
+message SimpleInterval
+ {
+  type String = 1
+  start Integer = 2
+  end Integer = 3
+ }
+// A free-text definition of variation.
+message Text
+ {
+  optional id CURIE = 1
+  type String = 2
+  definition String = 3
+ }
+// This descriptor class is used for describing VRS Variation value objects.
+message VariationDescriptor
+ {
+  id CURIE = 1
+  vrsType TypeOptions = 2
+  optional label String = 3
+  optional description String = 4
+  repeated xrefs CURIE = 5
+  repeated alternateLabels String = 6
+  repeated extensions Extension = 7
+  optional variationId CURIE = 8
+  variation Variation = 9
+  optional moleculeContext MoleculeContextOptions = 10
+  optional structuralType CURIE = 11
+  repeated expressions Expression = 12
+  optional vcfRecord VcfRecord = 13
+  optional geneContext String = 14
+  optional vrsRefAlleleSeq Sequence = 15
+  optional allelicState CURIE = 16
+ }
+// A compact class for representing a variation context that is a member of a Categorical Variation. It supports one or more Expressions of a Variation and optionally an associated VRS ID.
+message VariationMember
+ {
+  optional vrsType String = 1
+  repeated expressions Expression = 2
+  optional variationId CURIE = 3
+ }
+// An unconstrained set of Variation members.
+message VariationSet
+ {
+  optional id CURIE = 1
+  type String = 2
+  repeated members String = 3
+ }
+// This data class is used when it is desirable to pass data as expected from a VCF record. The class is only used as an optional attribute within a VariationDescriptor. The Genotype field from a VCF should be captured by the `allelic_state` attribute in the Variation Descriptor.
+message VcfRecord
+ {
+  genomeAssembly String = 1
+  chrom String = 2
+  pos String = 3
+  optional id String = 4
+  ref String = 5
+  alt String = 6
+  optional qual String = 7
+  optional filter String = 8
+  optional info String = 9
+ }

@@ -1,0 +1,3820 @@
+{
+  "name": "vrsatile",
+  "id": "https://example.org/vrsatile",
+  "imports": [
+    "linkml:types",
+    "catvars",
+    "vrs",
+    "vod"
+  ],
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "prefixes": [
+    {
+      "prefix_prefix": "vrsatile",
+      "prefix_reference": "https://example.org/vrsatile"
+    },
+    {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    }
+  ],
+  "default_prefix": "vrsatile",
+  "default_range": "string",
+  "types": [
+    {
+      "name": "string",
+      "definition_uri": "https://w3id.org/linkml/String",
+      "description": "A character string",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "integer",
+      "definition_uri": "https://w3id.org/linkml/Integer",
+      "description": "An integer",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "int",
+      "uri": "http://www.w3.org/2001/XMLSchema#integer",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "boolean",
+      "definition_uri": "https://w3id.org/linkml/Boolean",
+      "description": "A binary (true or false) value",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "Bool",
+      "uri": "http://www.w3.org/2001/XMLSchema#boolean",
+      "repr": "bool",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "float",
+      "definition_uri": "https://w3id.org/linkml/Float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#float",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "double",
+      "definition_uri": "https://w3id.org/linkml/Double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#double",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "decimal",
+      "definition_uri": "https://w3id.org/linkml/Decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "Decimal",
+      "uri": "http://www.w3.org/2001/XMLSchema#decimal",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "time",
+      "definition_uri": "https://w3id.org/linkml/Time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date",
+      "definition_uri": "https://w3id.org/linkml/Date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDDate",
+      "uri": "http://www.w3.org/2001/XMLSchema#date",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "datetime",
+      "definition_uri": "https://w3id.org/linkml/Datetime",
+      "description": "The combination of a date and time",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "XSDDateTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uriorcurie",
+      "definition_uri": "https://w3id.org/linkml/Uriorcurie",
+      "description": "a URI or a CURIE",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "URIorCURIE",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uri",
+      "definition_uri": "https://w3id.org/linkml/Uri",
+      "description": "a complete URI",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "URI",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "ncname",
+      "definition_uri": "https://w3id.org/linkml/Ncname",
+      "description": "Prefix part of CURIE",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NCName",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "objectidentifier",
+      "definition_uri": "https://w3id.org/linkml/Objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "ElementIdentifier",
+      "uri": "http://www.w3.org/ns/shex#iri",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "nodeidentifier",
+      "definition_uri": "https://w3id.org/linkml/Nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NodeIdentifier",
+      "uri": "http://www.w3.org/ns/shex#nonLiteral",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    }
+  ],
+  "enums": [
+    {
+      "name": "operator_options",
+      "definition_uri": "https://example.org/GA4GH-Categorical-Variation-DefinitionsOperatorOptions",
+      "from_schema": "https://example.org/GA4GHCategoricalVariationDefinitions",
+      "permissible_values": [
+        {
+          "text": "AND"
+        },
+        {
+          "text": "OR"
+        }
+      ]
+    },
+    {
+      "name": "comparator_options",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsComparatorOptions",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "permissible_values": [
+        {
+          "text": "<="
+        },
+        {
+          "text": ">="
+        }
+      ]
+    },
+    {
+      "name": "type_options",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsTypeOptions",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "permissible_values": [
+        {
+          "text": "VariationDescriptor"
+        }
+      ]
+    },
+    {
+      "name": "molecule_context_options",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsMoleculeContextOptions",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "permissible_values": [
+        {
+          "text": "genomic"
+        },
+        {
+          "text": "transcript"
+        },
+        {
+          "text": "protein"
+        }
+      ]
+    },
+    {
+      "name": "syntax_options",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsSyntaxOptions",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "permissible_values": [
+        {
+          "text": "hgvs.c"
+        },
+        {
+          "text": "hgvs.p"
+        },
+        {
+          "text": "hgvs.g"
+        },
+        {
+          "text": "hgvs.m"
+        },
+        {
+          "text": "hgvs.n"
+        },
+        {
+          "text": "hgvs.r"
+        },
+        {
+          "text": "iscn"
+        },
+        {
+          "text": "gnomad"
+        },
+        {
+          "text": "spdi"
+        }
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "catvars_id",
+      "definition_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionscatvars_id",
+      "description": "Categorical Variation Id. MUST be unique within document.",
+      "from_schema": "https://example.org/GA4GHCategoricalVariationDefinitions",
+      "slot_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionscatvars_id",
+      "owner": "CanonicalVariation",
+      "domain_of": [
+        "ComplexVariation",
+        "CanonicalVariation"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "catvars_type",
+      "definition_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionscatvars_type",
+      "description": "MUST be \"CanonicalVariation\".",
+      "from_schema": "https://example.org/GA4GHCategoricalVariationDefinitions",
+      "slot_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionscatvars_type",
+      "owner": "CanonicalVariation",
+      "domain_of": [
+        "ComplexVariation",
+        "CanonicalVariation"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "operands",
+      "definition_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionsoperands",
+      "from_schema": "https://example.org/GA4GHCategoricalVariationDefinitions",
+      "slot_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionsoperands",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "ComplexVariation",
+      "domain_of": [
+        "ComplexVariation"
+      ],
+      "range": "CategoricalVariation",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "operator",
+      "definition_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionsoperator",
+      "description": "The logical operation applied to evaluating the object *operands*. MUST be \"AND\" or \"OR\".",
+      "from_schema": "https://example.org/GA4GHCategoricalVariationDefinitions",
+      "slot_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionsoperator",
+      "owner": "ComplexVariation",
+      "domain_of": [
+        "ComplexVariation"
+      ],
+      "range": "operator_options",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "variation",
+      "definition_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionsvariation",
+      "description": "The [VRS Variation](https://vrs.ga4gh.org/en/1.2.1/terms_and_model.html#variation) object to which congruency must be determined.",
+      "from_schema": "https://example.org/GA4GHCategoricalVariationDefinitions",
+      "slot_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionsvariation",
+      "inlined": true,
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "CanonicalVariation",
+        "VariationDescriptor"
+      ],
+      "range": "Variation",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "_id",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitions_id",
+      "description": "Location Id. MUST be unique within document.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitions_id",
+      "inlined": true,
+      "owner": "SequenceLocation",
+      "domain_of": [
+        "Allele",
+        "Haplotype",
+        "Text",
+        "VariationSet",
+        "CopyNumber",
+        "ChromosomeLocation",
+        "SequenceLocation"
+      ],
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"SimpleInterval\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "owner": "SimpleInterval",
+      "domain_of": [
+        "Allele",
+        "Haplotype",
+        "Text",
+        "VariationSet",
+        "CopyNumber",
+        "ChromosomeLocation",
+        "SequenceLocation",
+        "SequenceInterval",
+        "CytobandInterval",
+        "LiteralSequenceExpression",
+        "DerivedSequenceExpression",
+        "RepeatedSequenceExpression",
+        "ComposedSequenceExpression",
+        "Gene",
+        "Number",
+        "DefiniteRange",
+        "IndefiniteRange",
+        "SequenceState",
+        "SimpleInterval"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "location",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionslocation",
+      "description": "The location from which the approximate sequence is derived",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionslocation",
+      "inlined": true,
+      "owner": "DerivedSequenceExpression",
+      "domain_of": [
+        "Allele",
+        "DerivedSequenceExpression"
+      ],
+      "range": "SequenceLocation",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "state",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsstate",
+      "description": "An expression of the sequence state",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsstate",
+      "owner": "Allele",
+      "domain_of": [
+        "Allele"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "members",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsmembers",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsmembers",
+      "multivalued": true,
+      "owner": "VariationSet",
+      "domain_of": [
+        "Haplotype",
+        "VariationSet"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "definition",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsdefinition",
+      "description": "A textual representation of variation not representable by other subclasses of Variation.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsdefinition",
+      "owner": "Text",
+      "domain_of": [
+        "Text"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "subject",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionssubject",
+      "description": "Subject of the Copy Number object",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionssubject",
+      "owner": "CopyNumber",
+      "domain_of": [
+        "CopyNumber"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "copies",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionscopies",
+      "description": "The integral number of copies of the subject in a system",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionscopies",
+      "owner": "CopyNumber",
+      "domain_of": [
+        "CopyNumber"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "species_id",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsspecies_id",
+      "description": "CURIE representing a species from the [NCBI species taxonomy](https://registry.identifiers.org/registry/taxonomy). Default: \"taxonomy:9606\" (human)",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsspecies_id",
+      "inlined": true,
+      "owner": "ChromosomeLocation",
+      "domain_of": [
+        "ChromosomeLocation"
+      ],
+      "range": "CURIE",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "chr",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionschr",
+      "description": "The symbolic chromosome name. For humans, For humans, chromosome names MUST be one of 1..22, X, Y (case-sensitive)",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionschr",
+      "owner": "ChromosomeLocation",
+      "domain_of": [
+        "ChromosomeLocation"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "interval",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsinterval",
+      "description": "Reference sequence region defined by a SequenceInterval.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsinterval",
+      "owner": "SequenceLocation",
+      "domain_of": [
+        "ChromosomeLocation",
+        "SequenceLocation"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sequence_id",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionssequence_id",
+      "description": "A VRS Computed Identifier for the reference Sequence.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionssequence_id",
+      "inlined": true,
+      "owner": "SequenceLocation",
+      "domain_of": [
+        "SequenceLocation"
+      ],
+      "range": "CURIE",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "start",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsstart",
+      "description": "The start coordinate",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsstart",
+      "owner": "SimpleInterval",
+      "domain_of": [
+        "SequenceInterval",
+        "CytobandInterval",
+        "SimpleInterval"
+      ],
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "end",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsend",
+      "description": "The end coordinate",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsend",
+      "owner": "SimpleInterval",
+      "domain_of": [
+        "SequenceInterval",
+        "CytobandInterval",
+        "SimpleInterval"
+      ],
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sequence",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionssequence",
+      "description": "A string of Residues",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionssequence",
+      "inlined": true,
+      "owner": "SequenceState",
+      "domain_of": [
+        "LiteralSequenceExpression",
+        "SequenceState"
+      ],
+      "range": "Sequence",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "reverse_complement",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsreverse_complement",
+      "description": "A flag indicating if the expressed sequence is the reverse complement of the sequence referred to by `location`",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsreverse_complement",
+      "owner": "DerivedSequenceExpression",
+      "domain_of": [
+        "DerivedSequenceExpression"
+      ],
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "seq_expr",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsseq_expr",
+      "description": "An expression of the repeating subsequence",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsseq_expr",
+      "owner": "RepeatedSequenceExpression",
+      "domain_of": [
+        "RepeatedSequenceExpression"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "count",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionscount",
+      "description": "The count of repeated units, as an integer or inclusive range",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionscount",
+      "owner": "RepeatedSequenceExpression",
+      "domain_of": [
+        "RepeatedSequenceExpression"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "components",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionscomponents",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionscomponents",
+      "multivalued": true,
+      "owner": "ComposedSequenceExpression",
+      "domain_of": [
+        "ComposedSequenceExpression"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "gene_id",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsgene_id",
+      "description": "A CURIE reference to a Gene concept",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsgene_id",
+      "inlined": true,
+      "owner": "Gene",
+      "domain_of": [
+        "Gene"
+      ],
+      "range": "CURIE",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "value",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsvalue",
+      "description": "The bounded value; inclusive",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsvalue",
+      "owner": "IndefiniteRange",
+      "domain_of": [
+        "Number",
+        "IndefiniteRange"
+      ],
+      "range": "float",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "min",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsmin",
+      "description": "The minimum value; inclusive",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsmin",
+      "owner": "DefiniteRange",
+      "domain_of": [
+        "DefiniteRange"
+      ],
+      "range": "float",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "max",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsmax",
+      "description": "The maximum value; inclusive",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsmax",
+      "owner": "DefiniteRange",
+      "domain_of": [
+        "DefiniteRange"
+      ],
+      "range": "float",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "comparator",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionscomparator",
+      "description": "MUST be one of \"<=\" or \">=\", indicating which direction the range is indefinite",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionscomparator",
+      "owner": "IndefiniteRange",
+      "domain_of": [
+        "IndefiniteRange"
+      ],
+      "range": "comparator_options",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "id",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsid",
+      "description": "A semicolon-separated list of unique identifiers where available. For example, dbSNP rsIDs. We RECOMMEND storing this information as a list in the VariationDescriptor `xrefs` field.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsid",
+      "owner": "VcfRecord",
+      "domain_of": [
+        "VariationDescriptor",
+        "CategoricalVariationDescriptor",
+        "VcfRecord"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "vrs_type",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type",
+      "description": "MUST be \"VariationMember\"",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type",
+      "owner": "VariationMember",
+      "domain_of": [
+        "VariationDescriptor",
+        "Extension",
+        "Expression",
+        "CategoricalVariationDescriptor",
+        "VariationMember"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "label",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionslabel",
+      "description": "A primary label for the value object.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionslabel",
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor",
+        "CategoricalVariationDescriptor"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "description",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsdescription",
+      "description": "A free-text description of the value object.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsdescription",
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor",
+        "CategoricalVariationDescriptor"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "xrefs",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsxrefs",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsxrefs",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor",
+        "CategoricalVariationDescriptor"
+      ],
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "alternate_labels",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsalternate_labels",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsalternate_labels",
+      "multivalued": true,
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor",
+        "CategoricalVariationDescriptor"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "extensions",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsextensions",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsextensions",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor",
+        "CategoricalVariationDescriptor"
+      ],
+      "range": "Extension",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "variation_id",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvariation_id",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvariation_id",
+      "inlined": true,
+      "owner": "VariationMember",
+      "domain_of": [
+        "VariationDescriptor",
+        "VariationMember"
+      ],
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "molecule_context",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsmolecule_context",
+      "description": "The molecular context of this variant. Must be one of \"genomic\", \"transcript\", or \"protein\".",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsmolecule_context",
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "range": "molecule_context_options",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "structural_type",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsstructural_type",
+      "description": "The structural variant type associated with this variant. We RECOMMEND a descendent term of [SO:0001537](http://www.sequenceontology.org/browser/current_release/term/SO:0001537).",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsstructural_type",
+      "inlined": true,
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "expressions",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsexpressions",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsexpressions",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "VariationMember",
+      "domain_of": [
+        "VariationDescriptor",
+        "VariationMember"
+      ],
+      "range": "Expression",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "vcf_record",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvcf_record",
+      "description": "A VCF Record of the variant. This SHOULD be a single allele, the VCF genotype (GT) field should be represented in the *allelic_state* attribute.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvcf_record",
+      "inlined": true,
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "range": "VcfRecord",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "gene_context",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsgene_context",
+      "description": "A specific gene context that applies to this variant.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsgene_context",
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "vrs_ref_allele_seq",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_ref_allele_seq",
+      "description": "A `VRS Sequence`_ corresponding to a \"ref allele\", describing the sequence expected at a `VRS SequenceLocation`_ reference.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_ref_allele_seq",
+      "inlined": true,
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "range": "Sequence",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "allelic_state",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsallelic_state",
+      "description": "We RECOMMEND that the *allelic_state* of a variation be described by terms from the Genotype Ontology (GENO). These SHOULD descend from concept `GENO:0000875 <http://purl.obolibrary.org/obo/GENO_0000875>`.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsallelic_state",
+      "inlined": true,
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "name",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsname",
+      "description": "A name for the Extension",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsname",
+      "owner": "Extension",
+      "domain_of": [
+        "Extension"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "vrs_value",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_value",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_value",
+      "owner": "Expression",
+      "domain_of": [
+        "Extension",
+        "Expression"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "syntax",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionssyntax",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionssyntax",
+      "owner": "Expression",
+      "domain_of": [
+        "Expression"
+      ],
+      "range": "syntax_options",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "syntax_version",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionssyntax_version",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionssyntax_version",
+      "owner": "Expression",
+      "domain_of": [
+        "Expression"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "version",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsversion",
+      "description": "The version of the Categorical Variation Descriptor.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsversion",
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "CategoricalVariationDescriptor"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "categorical_variation_id",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionscategorical_variation_id",
+      "description": "This SHOULD be provided if *categorical_variation* is omitted.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionscategorical_variation_id",
+      "inlined": true,
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "CategoricalVariationDescriptor"
+      ],
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "categorical_variation",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionscategorical_variation",
+      "description": "This SHOULD be provided if *variation_id* is omitted.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionscategorical_variation",
+      "inlined": true,
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "CategoricalVariationDescriptor"
+      ],
+      "range": "CategoricalVariation",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "vrs_members",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_members",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_members",
+      "multivalued": true,
+      "inlined": true,
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "CategoricalVariationDescriptor"
+      ],
+      "range": "VariationMember",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "genome_assembly",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsgenome_assembly",
+      "description": "Identifier for the genome assembly used to call the allele.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsgenome_assembly",
+      "owner": "VcfRecord",
+      "domain_of": [
+        "VcfRecord"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "chrom",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionschrom",
+      "description": "A chromosome or contig identifier.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionschrom",
+      "owner": "VcfRecord",
+      "domain_of": [
+        "VcfRecord"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pos",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionspos",
+      "description": "The reference residue-coordinate position, with the first residue having position 1.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionspos",
+      "owner": "VcfRecord",
+      "domain_of": [
+        "VcfRecord"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ref",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsref",
+      "description": "Reference base as expected by the VCF specification.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsref",
+      "owner": "VcfRecord",
+      "domain_of": [
+        "VcfRecord"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "alt",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsalt",
+      "description": "Alternate base as expected by the VCF specification.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsalt",
+      "owner": "VcfRecord",
+      "domain_of": [
+        "VcfRecord"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "qual",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsqual",
+      "description": "Quality: Phred-scaled quality score for the assertion made in ALT.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsqual",
+      "owner": "VcfRecord",
+      "domain_of": [
+        "VcfRecord"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "filter",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsfilter",
+      "description": "Filter status: PASS if this position has passed all filters.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsfilter",
+      "owner": "VcfRecord",
+      "domain_of": [
+        "VcfRecord"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "info",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsinfo",
+      "description": "Additional information: Semicolon-separated series of additional information fields.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsinfo",
+      "owner": "VcfRecord",
+      "domain_of": [
+        "VcfRecord"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ComplexVariation_catvars_id",
+      "definition_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionscatvars_id",
+      "description": "Categorical Variation Id. MUST be unique within document.",
+      "from_schema": "https://example.org/GA4GHCategoricalVariationDefinitions",
+      "is_a": "catvars_id",
+      "domain": "ComplexVariation",
+      "slot_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionscatvars_id",
+      "alias": "catvars_id",
+      "owner": "ComplexVariation",
+      "domain_of": [
+        "ComplexVariation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "catvars_id",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ComplexVariation_catvars_type",
+      "definition_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionscatvars_type",
+      "description": "MUST be \"ComplexVariation\".",
+      "from_schema": "https://example.org/GA4GHCategoricalVariationDefinitions",
+      "is_a": "catvars_type",
+      "domain": "ComplexVariation",
+      "slot_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionscatvars_type",
+      "alias": "catvars_type",
+      "owner": "ComplexVariation",
+      "domain_of": [
+        "ComplexVariation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "catvars_type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ComplexVariation_operands",
+      "definition_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionsoperands",
+      "from_schema": "https://example.org/GA4GHCategoricalVariationDefinitions",
+      "is_a": "operands",
+      "domain": "ComplexVariation",
+      "slot_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionsoperands",
+      "multivalued": true,
+      "inlined": true,
+      "alias": "operands",
+      "owner": "ComplexVariation",
+      "domain_of": [
+        "ComplexVariation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "operands",
+      "range": "CategoricalVariation",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ComplexVariation_operator",
+      "definition_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionsoperator",
+      "description": "The logical operation applied to evaluating the object *operands*. MUST be \"AND\" or \"OR\".",
+      "from_schema": "https://example.org/GA4GHCategoricalVariationDefinitions",
+      "is_a": "operator",
+      "domain": "ComplexVariation",
+      "slot_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionsoperator",
+      "alias": "operator",
+      "owner": "ComplexVariation",
+      "domain_of": [
+        "ComplexVariation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "operator",
+      "range": "operator_options",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CanonicalVariation_catvars_id",
+      "definition_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionscatvars_id",
+      "description": "Categorical Variation Id. MUST be unique within document.",
+      "from_schema": "https://example.org/GA4GHCategoricalVariationDefinitions",
+      "is_a": "catvars_id",
+      "domain": "CanonicalVariation",
+      "slot_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionscatvars_id",
+      "alias": "catvars_id",
+      "owner": "CanonicalVariation",
+      "domain_of": [
+        "CanonicalVariation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "catvars_id",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CanonicalVariation_catvars_type",
+      "definition_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionscatvars_type",
+      "description": "MUST be \"CanonicalVariation\".",
+      "from_schema": "https://example.org/GA4GHCategoricalVariationDefinitions",
+      "is_a": "catvars_type",
+      "domain": "CanonicalVariation",
+      "slot_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionscatvars_type",
+      "alias": "catvars_type",
+      "owner": "CanonicalVariation",
+      "domain_of": [
+        "CanonicalVariation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "catvars_type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CanonicalVariation_variation",
+      "definition_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionsvariation",
+      "description": "The [VRS Variation](https://vrs.ga4gh.org/en/1.2.1/terms_and_model.html#variation) object to which congruency must be determined.",
+      "from_schema": "https://example.org/GA4GHCategoricalVariationDefinitions",
+      "is_a": "variation",
+      "domain": "CanonicalVariation",
+      "slot_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionsvariation",
+      "inlined": true,
+      "alias": "variation",
+      "owner": "CanonicalVariation",
+      "domain_of": [
+        "CanonicalVariation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "variation",
+      "range": "Variation",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Allele__id",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitions_id",
+      "description": "Variation Id. MUST be unique within document.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "_id",
+      "domain": "Allele",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitions_id",
+      "inlined": true,
+      "alias": "_id",
+      "owner": "Allele",
+      "domain_of": [
+        "Allele"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "_id",
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Allele_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"Allele\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "Allele",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "Allele",
+      "domain_of": [
+        "Allele"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Allele_location",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionslocation",
+      "description": "Where Allele is located",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "location",
+      "domain": "Allele",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionslocation",
+      "inlined": true,
+      "alias": "location",
+      "owner": "Allele",
+      "domain_of": [
+        "Allele"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "location",
+      "range": "SequenceLocation",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Allele_state",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsstate",
+      "description": "An expression of the sequence state",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "state",
+      "domain": "Allele",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsstate",
+      "alias": "state",
+      "owner": "Allele",
+      "domain_of": [
+        "Allele"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "state",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Haplotype__id",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitions_id",
+      "description": "Variation Id. MUST be unique within document.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "_id",
+      "domain": "Haplotype",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitions_id",
+      "inlined": true,
+      "alias": "_id",
+      "owner": "Haplotype",
+      "domain_of": [
+        "Haplotype"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "_id",
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Haplotype_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"Haplotype\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "Haplotype",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "Haplotype",
+      "domain_of": [
+        "Haplotype"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Haplotype_members",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsmembers",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "members",
+      "domain": "Haplotype",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsmembers",
+      "multivalued": true,
+      "alias": "members",
+      "owner": "Haplotype",
+      "domain_of": [
+        "Haplotype"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "members",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Text__id",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitions_id",
+      "description": "Variation Id. MUST be unique within document.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "_id",
+      "domain": "Text",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitions_id",
+      "inlined": true,
+      "alias": "_id",
+      "owner": "Text",
+      "domain_of": [
+        "Text"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "_id",
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Text_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"Text\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "Text",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "Text",
+      "domain_of": [
+        "Text"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Text_definition",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsdefinition",
+      "description": "A textual representation of variation not representable by other subclasses of Variation.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "definition",
+      "domain": "Text",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsdefinition",
+      "alias": "definition",
+      "owner": "Text",
+      "domain_of": [
+        "Text"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "definition",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationSet__id",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitions_id",
+      "description": "Variation Id. MUST be unique within document.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "_id",
+      "domain": "VariationSet",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitions_id",
+      "inlined": true,
+      "alias": "_id",
+      "owner": "VariationSet",
+      "domain_of": [
+        "VariationSet"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "_id",
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationSet_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"VariationSet\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "VariationSet",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "VariationSet",
+      "domain_of": [
+        "VariationSet"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationSet_members",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsmembers",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "members",
+      "domain": "VariationSet",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsmembers",
+      "multivalued": true,
+      "alias": "members",
+      "owner": "VariationSet",
+      "domain_of": [
+        "VariationSet"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "members",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CopyNumber__id",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitions_id",
+      "description": "Variation Id. MUST be unique within document.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "_id",
+      "domain": "CopyNumber",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitions_id",
+      "inlined": true,
+      "alias": "_id",
+      "owner": "CopyNumber",
+      "domain_of": [
+        "CopyNumber"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "_id",
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CopyNumber_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"CopyNumber\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "CopyNumber",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "CopyNumber",
+      "domain_of": [
+        "CopyNumber"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CopyNumber_subject",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionssubject",
+      "description": "Subject of the Copy Number object",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "subject",
+      "domain": "CopyNumber",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionssubject",
+      "alias": "subject",
+      "owner": "CopyNumber",
+      "domain_of": [
+        "CopyNumber"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "subject",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CopyNumber_copies",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionscopies",
+      "description": "The integral number of copies of the subject in a system",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "copies",
+      "domain": "CopyNumber",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionscopies",
+      "alias": "copies",
+      "owner": "CopyNumber",
+      "domain_of": [
+        "CopyNumber"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "copies",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ChromosomeLocation__id",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitions_id",
+      "description": "Location Id. MUST be unique within document.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "_id",
+      "domain": "ChromosomeLocation",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitions_id",
+      "inlined": true,
+      "alias": "_id",
+      "owner": "ChromosomeLocation",
+      "domain_of": [
+        "ChromosomeLocation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "_id",
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ChromosomeLocation_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"ChromosomeLocation\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "ChromosomeLocation",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "ChromosomeLocation",
+      "domain_of": [
+        "ChromosomeLocation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ChromosomeLocation_species_id",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsspecies_id",
+      "description": "CURIE representing a species from the [NCBI species taxonomy](https://registry.identifiers.org/registry/taxonomy). Default: \"taxonomy:9606\" (human)",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "species_id",
+      "domain": "ChromosomeLocation",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsspecies_id",
+      "inlined": true,
+      "alias": "species_id",
+      "owner": "ChromosomeLocation",
+      "domain_of": [
+        "ChromosomeLocation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "species_id",
+      "range": "CURIE",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ChromosomeLocation_chr",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionschr",
+      "description": "The symbolic chromosome name. For humans, For humans, chromosome names MUST be one of 1..22, X, Y (case-sensitive)",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "chr",
+      "domain": "ChromosomeLocation",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionschr",
+      "alias": "chr",
+      "owner": "ChromosomeLocation",
+      "domain_of": [
+        "ChromosomeLocation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "chr",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ChromosomeLocation_interval",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsinterval",
+      "description": "The chromosome region defined by a CytobandInterval",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "interval",
+      "domain": "ChromosomeLocation",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsinterval",
+      "inlined": true,
+      "alias": "interval",
+      "owner": "ChromosomeLocation",
+      "domain_of": [
+        "ChromosomeLocation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "interval",
+      "range": "CytobandInterval",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SequenceLocation__id",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitions_id",
+      "description": "Location Id. MUST be unique within document.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "_id",
+      "domain": "SequenceLocation",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitions_id",
+      "inlined": true,
+      "alias": "_id",
+      "owner": "SequenceLocation",
+      "domain_of": [
+        "SequenceLocation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "_id",
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SequenceLocation_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"SequenceLocation\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "SequenceLocation",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "SequenceLocation",
+      "domain_of": [
+        "SequenceLocation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SequenceLocation_sequence_id",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionssequence_id",
+      "description": "A VRS Computed Identifier for the reference Sequence.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "sequence_id",
+      "domain": "SequenceLocation",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionssequence_id",
+      "inlined": true,
+      "alias": "sequence_id",
+      "owner": "SequenceLocation",
+      "domain_of": [
+        "SequenceLocation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "sequence_id",
+      "range": "CURIE",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SequenceLocation_interval",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsinterval",
+      "description": "Reference sequence region defined by a SequenceInterval.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "interval",
+      "domain": "SequenceLocation",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsinterval",
+      "alias": "interval",
+      "owner": "SequenceLocation",
+      "domain_of": [
+        "SequenceLocation"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "interval",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SequenceInterval_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"SequenceInterval\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "SequenceInterval",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "SequenceInterval",
+      "domain_of": [
+        "SequenceInterval"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SequenceInterval_start",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsstart",
+      "description": "The start coordinate or range of the interval. The minimum value of this coordinate or range is 0. MUST represent a coordinate or range less than the value of `end`.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "start",
+      "domain": "SequenceInterval",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsstart",
+      "alias": "start",
+      "owner": "SequenceInterval",
+      "domain_of": [
+        "SequenceInterval"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "start",
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SequenceInterval_end",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsend",
+      "description": "The end coordinate or range of the interval. The minimum value of this coordinate or range is 0. MUST represent a coordinate or range greater than the value of `start`.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "end",
+      "domain": "SequenceInterval",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsend",
+      "alias": "end",
+      "owner": "SequenceInterval",
+      "domain_of": [
+        "SequenceInterval"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "end",
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CytobandInterval_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"CytobandInterval\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "CytobandInterval",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "CytobandInterval",
+      "domain_of": [
+        "CytobandInterval"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CytobandInterval_start",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsstart",
+      "description": "The start cytoband region. MUST specify a region nearer the terminal end (telomere) of the chromosome p-arm than `end`.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "start",
+      "domain": "CytobandInterval",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsstart",
+      "inlined": true,
+      "alias": "start",
+      "owner": "CytobandInterval",
+      "domain_of": [
+        "CytobandInterval"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "start",
+      "range": "HumanCytoband",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CytobandInterval_end",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsend",
+      "description": "The start cytoband region. MUST specify a region nearer the terminal end (telomere) of the chromosome q-arm than `start`.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "end",
+      "domain": "CytobandInterval",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsend",
+      "inlined": true,
+      "alias": "end",
+      "owner": "CytobandInterval",
+      "domain_of": [
+        "CytobandInterval"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "end",
+      "range": "HumanCytoband",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LiteralSequenceExpression_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"LiteralSequenceExpression\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "LiteralSequenceExpression",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "LiteralSequenceExpression",
+      "domain_of": [
+        "LiteralSequenceExpression"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LiteralSequenceExpression_sequence",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionssequence",
+      "description": "the literal Sequence expressed",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "sequence",
+      "domain": "LiteralSequenceExpression",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionssequence",
+      "inlined": true,
+      "alias": "sequence",
+      "owner": "LiteralSequenceExpression",
+      "domain_of": [
+        "LiteralSequenceExpression"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "sequence",
+      "range": "Sequence",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DerivedSequenceExpression_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"DerivedSequenceExpression\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "DerivedSequenceExpression",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "DerivedSequenceExpression",
+      "domain_of": [
+        "DerivedSequenceExpression"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DerivedSequenceExpression_location",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionslocation",
+      "description": "The location from which the approximate sequence is derived",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "location",
+      "domain": "DerivedSequenceExpression",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionslocation",
+      "inlined": true,
+      "alias": "location",
+      "owner": "DerivedSequenceExpression",
+      "domain_of": [
+        "DerivedSequenceExpression"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "location",
+      "range": "SequenceLocation",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DerivedSequenceExpression_reverse_complement",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsreverse_complement",
+      "description": "A flag indicating if the expressed sequence is the reverse complement of the sequence referred to by `location`",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "reverse_complement",
+      "domain": "DerivedSequenceExpression",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsreverse_complement",
+      "alias": "reverse_complement",
+      "owner": "DerivedSequenceExpression",
+      "domain_of": [
+        "DerivedSequenceExpression"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "reverse_complement",
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "RepeatedSequenceExpression_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"RepeatedSequenceExpression\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "RepeatedSequenceExpression",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "RepeatedSequenceExpression",
+      "domain_of": [
+        "RepeatedSequenceExpression"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "RepeatedSequenceExpression_seq_expr",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsseq_expr",
+      "description": "An expression of the repeating subsequence",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "seq_expr",
+      "domain": "RepeatedSequenceExpression",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsseq_expr",
+      "alias": "seq_expr",
+      "owner": "RepeatedSequenceExpression",
+      "domain_of": [
+        "RepeatedSequenceExpression"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "seq_expr",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "RepeatedSequenceExpression_count",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionscount",
+      "description": "The count of repeated units, as an integer or inclusive range",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "count",
+      "domain": "RepeatedSequenceExpression",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionscount",
+      "alias": "count",
+      "owner": "RepeatedSequenceExpression",
+      "domain_of": [
+        "RepeatedSequenceExpression"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "count",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ComposedSequenceExpression_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"ComposedSequenceExpression\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "ComposedSequenceExpression",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "ComposedSequenceExpression",
+      "domain_of": [
+        "ComposedSequenceExpression"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ComposedSequenceExpression_components",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionscomponents",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "components",
+      "domain": "ComposedSequenceExpression",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionscomponents",
+      "multivalued": true,
+      "alias": "components",
+      "owner": "ComposedSequenceExpression",
+      "domain_of": [
+        "ComposedSequenceExpression"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "components",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Gene_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"Gene\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "Gene",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "Gene",
+      "domain_of": [
+        "Gene"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Gene_gene_id",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsgene_id",
+      "description": "A CURIE reference to a Gene concept",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "gene_id",
+      "domain": "Gene",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsgene_id",
+      "inlined": true,
+      "alias": "gene_id",
+      "owner": "Gene",
+      "domain_of": [
+        "Gene"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "gene_id",
+      "range": "CURIE",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Number_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"Number\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "Number",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "Number",
+      "domain_of": [
+        "Number"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Number_value",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsvalue",
+      "description": "The value represented by Number",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "value",
+      "domain": "Number",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsvalue",
+      "alias": "value",
+      "owner": "Number",
+      "domain_of": [
+        "Number"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DefiniteRange_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"DefiniteRange\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "DefiniteRange",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "DefiniteRange",
+      "domain_of": [
+        "DefiniteRange"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DefiniteRange_min",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsmin",
+      "description": "The minimum value; inclusive",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "min",
+      "domain": "DefiniteRange",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsmin",
+      "alias": "min",
+      "owner": "DefiniteRange",
+      "domain_of": [
+        "DefiniteRange"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "min",
+      "range": "float",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "DefiniteRange_max",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsmax",
+      "description": "The maximum value; inclusive",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "max",
+      "domain": "DefiniteRange",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsmax",
+      "alias": "max",
+      "owner": "DefiniteRange",
+      "domain_of": [
+        "DefiniteRange"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "max",
+      "range": "float",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "IndefiniteRange_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"IndefiniteRange\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "IndefiniteRange",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "IndefiniteRange",
+      "domain_of": [
+        "IndefiniteRange"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "IndefiniteRange_value",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsvalue",
+      "description": "The bounded value; inclusive",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "value",
+      "domain": "IndefiniteRange",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsvalue",
+      "alias": "value",
+      "owner": "IndefiniteRange",
+      "domain_of": [
+        "IndefiniteRange"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "value",
+      "range": "float",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "IndefiniteRange_comparator",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionscomparator",
+      "description": "MUST be one of \"<=\" or \">=\", indicating which direction the range is indefinite",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "comparator",
+      "domain": "IndefiniteRange",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionscomparator",
+      "alias": "comparator",
+      "owner": "IndefiniteRange",
+      "domain_of": [
+        "IndefiniteRange"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "comparator",
+      "range": "comparator_options",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SequenceState_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"SequenceState\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "SequenceState",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "SequenceState",
+      "domain_of": [
+        "SequenceState"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SequenceState_sequence",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionssequence",
+      "description": "A string of Residues",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "sequence",
+      "domain": "SequenceState",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionssequence",
+      "inlined": true,
+      "alias": "sequence",
+      "owner": "SequenceState",
+      "domain_of": [
+        "SequenceState"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "sequence",
+      "range": "Sequence",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SimpleInterval_type",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "description": "MUST be \"SimpleInterval\"",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "type",
+      "domain": "SimpleInterval",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionstype",
+      "alias": "type",
+      "owner": "SimpleInterval",
+      "domain_of": [
+        "SimpleInterval"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SimpleInterval_start",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsstart",
+      "description": "The start coordinate",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "start",
+      "domain": "SimpleInterval",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsstart",
+      "alias": "start",
+      "owner": "SimpleInterval",
+      "domain_of": [
+        "SimpleInterval"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "start",
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "SimpleInterval_end",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsend",
+      "description": "The end coordinate",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "is_a": "end",
+      "domain": "SimpleInterval",
+      "slot_uri": "https://example.org/GA4GHVRSDefinitionsend",
+      "alias": "end",
+      "owner": "SimpleInterval",
+      "domain_of": [
+        "SimpleInterval"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "end",
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationDescriptor_id",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsid",
+      "description": "Descriptor ID; MUST be unique within document.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "id",
+      "domain": "VariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsid",
+      "inlined": true,
+      "alias": "id",
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "id",
+      "range": "CURIE",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationDescriptor_vrs_type",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type",
+      "description": "MUST be \"VariationDescriptor\".",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "vrs_type",
+      "domain": "VariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type",
+      "alias": "vrs_type",
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "vrs_type",
+      "range": "type_options",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationDescriptor_label",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionslabel",
+      "description": "A primary label for the value object.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "label",
+      "domain": "VariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionslabel",
+      "alias": "label",
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "label",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationDescriptor_description",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsdescription",
+      "description": "A free-text description of the value object.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "description",
+      "domain": "VariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsdescription",
+      "alias": "description",
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationDescriptor_xrefs",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsxrefs",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "xrefs",
+      "domain": "VariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsxrefs",
+      "multivalued": true,
+      "inlined": true,
+      "alias": "xrefs",
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "xrefs",
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationDescriptor_alternate_labels",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsalternate_labels",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "alternate_labels",
+      "domain": "VariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsalternate_labels",
+      "multivalued": true,
+      "alias": "alternate_labels",
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "alternate_labels",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationDescriptor_extensions",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsextensions",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "extensions",
+      "domain": "VariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsextensions",
+      "multivalued": true,
+      "inlined": true,
+      "alias": "extensions",
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "extensions",
+      "range": "Extension",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationDescriptor_variation_id",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvariation_id",
+      "description": "This SHOULD be provided if *variation* is omitted.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "variation_id",
+      "domain": "VariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvariation_id",
+      "inlined": true,
+      "alias": "variation_id",
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "variation_id",
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationDescriptor_variation",
+      "definition_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionsvariation",
+      "description": "This SHOULD be provided if *variation_id* is omitted.",
+      "from_schema": "https://example.org/GA4GHCategoricalVariationDefinitions",
+      "is_a": "variation",
+      "domain": "VariationDescriptor",
+      "slot_uri": "https://example.org/GA4GH-Categorical-Variation-Definitionsvariation",
+      "inlined": true,
+      "alias": "variation",
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "variation",
+      "range": "Variation",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationDescriptor_molecule_context",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsmolecule_context",
+      "description": "The molecular context of this variant. Must be one of \"genomic\", \"transcript\", or \"protein\".",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "molecule_context",
+      "domain": "VariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsmolecule_context",
+      "alias": "molecule_context",
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "molecule_context",
+      "range": "molecule_context_options",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationDescriptor_structural_type",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsstructural_type",
+      "description": "The structural variant type associated with this variant. We RECOMMEND a descendent term of [SO:0001537](http://www.sequenceontology.org/browser/current_release/term/SO:0001537).",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "structural_type",
+      "domain": "VariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsstructural_type",
+      "inlined": true,
+      "alias": "structural_type",
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "structural_type",
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationDescriptor_expressions",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsexpressions",
+      "description": "Typically HGVS or ISCN nomenclature expressions. Other systems relevant to the description of variation MAY be used.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "expressions",
+      "domain": "VariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsexpressions",
+      "multivalued": true,
+      "inlined": true,
+      "alias": "expressions",
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "expressions",
+      "range": "Expression",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationDescriptor_vcf_record",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvcf_record",
+      "description": "A VCF Record of the variant. This SHOULD be a single allele, the VCF genotype (GT) field should be represented in the *allelic_state* attribute.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "vcf_record",
+      "domain": "VariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvcf_record",
+      "inlined": true,
+      "alias": "vcf_record",
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "vcf_record",
+      "range": "VcfRecord",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationDescriptor_gene_context",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsgene_context",
+      "description": "A specific gene context that applies to this variant.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "gene_context",
+      "domain": "VariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsgene_context",
+      "alias": "gene_context",
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "gene_context",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationDescriptor_vrs_ref_allele_seq",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_ref_allele_seq",
+      "description": "A `VRS Sequence`_ corresponding to a \"ref allele\", describing the sequence expected at a `VRS SequenceLocation`_ reference.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "vrs_ref_allele_seq",
+      "domain": "VariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_ref_allele_seq",
+      "inlined": true,
+      "alias": "vrs_ref_allele_seq",
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "vrs_ref_allele_seq",
+      "range": "Sequence",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationDescriptor_allelic_state",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsallelic_state",
+      "description": "We RECOMMEND that the *allelic_state* of a variation be described by terms from the Genotype Ontology (GENO). These SHOULD descend from concept `GENO:0000875 <http://purl.obolibrary.org/obo/GENO_0000875>`.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "allelic_state",
+      "domain": "VariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsallelic_state",
+      "inlined": true,
+      "alias": "allelic_state",
+      "owner": "VariationDescriptor",
+      "domain_of": [
+        "VariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "allelic_state",
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Extension_vrs_type",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type",
+      "description": "MUST be \"Extension\".",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "vrs_type",
+      "domain": "Extension",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type",
+      "alias": "vrs_type",
+      "owner": "Extension",
+      "domain_of": [
+        "Extension"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "vrs_type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Extension_name",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsname",
+      "description": "A name for the Extension",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "name",
+      "domain": "Extension",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsname",
+      "alias": "name",
+      "owner": "Extension",
+      "domain_of": [
+        "Extension"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "name",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Extension_vrs_value",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_value",
+      "description": "Any primitive or structured object",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "vrs_value",
+      "domain": "Extension",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_value",
+      "alias": "vrs_value",
+      "owner": "Extension",
+      "domain_of": [
+        "Extension"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "vrs_value",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Expression_vrs_type",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type",
+      "description": "MUST be \"VariationMember\"",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "vrs_type",
+      "domain": "Expression",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type",
+      "alias": "vrs_type",
+      "owner": "Expression",
+      "domain_of": [
+        "Expression"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "vrs_type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Expression_syntax",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionssyntax",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "syntax",
+      "domain": "Expression",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionssyntax",
+      "alias": "syntax",
+      "owner": "Expression",
+      "domain_of": [
+        "Expression"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "syntax",
+      "range": "syntax_options",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Expression_vrs_value",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_value",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "vrs_value",
+      "domain": "Expression",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_value",
+      "alias": "vrs_value",
+      "owner": "Expression",
+      "domain_of": [
+        "Expression"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "vrs_value",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Expression_syntax_version",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionssyntax_version",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "syntax_version",
+      "domain": "Expression",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionssyntax_version",
+      "alias": "syntax_version",
+      "owner": "Expression",
+      "domain_of": [
+        "Expression"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "syntax_version",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CategoricalVariationDescriptor_id",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsid",
+      "description": "Descriptor ID; MUST be unique within document.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "id",
+      "domain": "CategoricalVariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsid",
+      "inlined": true,
+      "alias": "id",
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "CategoricalVariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "id",
+      "range": "CURIE",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CategoricalVariationDescriptor_vrs_type",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type",
+      "description": "MUST be \"VariationDescriptor\".",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "vrs_type",
+      "domain": "CategoricalVariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type",
+      "alias": "vrs_type",
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "CategoricalVariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "vrs_type",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CategoricalVariationDescriptor_label",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionslabel",
+      "description": "A primary label for the value object.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "label",
+      "domain": "CategoricalVariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionslabel",
+      "alias": "label",
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "CategoricalVariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "label",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CategoricalVariationDescriptor_description",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsdescription",
+      "description": "A free-text description of the value object.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "description",
+      "domain": "CategoricalVariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsdescription",
+      "alias": "description",
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "CategoricalVariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "description",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CategoricalVariationDescriptor_xrefs",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsxrefs",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "xrefs",
+      "domain": "CategoricalVariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsxrefs",
+      "multivalued": true,
+      "inlined": true,
+      "alias": "xrefs",
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "CategoricalVariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "xrefs",
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CategoricalVariationDescriptor_alternate_labels",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsalternate_labels",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "alternate_labels",
+      "domain": "CategoricalVariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsalternate_labels",
+      "multivalued": true,
+      "alias": "alternate_labels",
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "CategoricalVariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "alternate_labels",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CategoricalVariationDescriptor_extensions",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsextensions",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "extensions",
+      "domain": "CategoricalVariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsextensions",
+      "multivalued": true,
+      "inlined": true,
+      "alias": "extensions",
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "CategoricalVariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "extensions",
+      "range": "Extension",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CategoricalVariationDescriptor_version",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsversion",
+      "description": "The version of the Categorical Variation Descriptor.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "version",
+      "domain": "CategoricalVariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsversion",
+      "alias": "version",
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "CategoricalVariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "version",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CategoricalVariationDescriptor_categorical_variation_id",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionscategorical_variation_id",
+      "description": "This SHOULD be provided if *categorical_variation* is omitted.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "categorical_variation_id",
+      "domain": "CategoricalVariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionscategorical_variation_id",
+      "inlined": true,
+      "alias": "categorical_variation_id",
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "CategoricalVariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "categorical_variation_id",
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CategoricalVariationDescriptor_categorical_variation",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionscategorical_variation",
+      "description": "This SHOULD be provided if *variation_id* is omitted.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "categorical_variation",
+      "domain": "CategoricalVariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionscategorical_variation",
+      "inlined": true,
+      "alias": "categorical_variation",
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "CategoricalVariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "categorical_variation",
+      "range": "CategoricalVariation",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "CategoricalVariationDescriptor_vrs_members",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_members",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "vrs_members",
+      "domain": "CategoricalVariationDescriptor",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_members",
+      "multivalued": true,
+      "inlined": true,
+      "alias": "vrs_members",
+      "owner": "CategoricalVariationDescriptor",
+      "domain_of": [
+        "CategoricalVariationDescriptor"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "vrs_members",
+      "range": "VariationMember",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationMember_vrs_type",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type",
+      "description": "MUST be \"VariationMember\"",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "vrs_type",
+      "domain": "VariationMember",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type",
+      "alias": "vrs_type",
+      "owner": "VariationMember",
+      "domain_of": [
+        "VariationMember"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "vrs_type",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationMember_expressions",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsexpressions",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "expressions",
+      "domain": "VariationMember",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsexpressions",
+      "multivalued": true,
+      "inlined": true,
+      "alias": "expressions",
+      "owner": "VariationMember",
+      "domain_of": [
+        "VariationMember"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "expressions",
+      "range": "Expression",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VariationMember_variation_id",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvariation_id",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "variation_id",
+      "domain": "VariationMember",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsvariation_id",
+      "inlined": true,
+      "alias": "variation_id",
+      "owner": "VariationMember",
+      "domain_of": [
+        "VariationMember"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "variation_id",
+      "range": "CURIE",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VcfRecord_genome_assembly",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsgenome_assembly",
+      "description": "Identifier for the genome assembly used to call the allele.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "genome_assembly",
+      "domain": "VcfRecord",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsgenome_assembly",
+      "alias": "genome_assembly",
+      "owner": "VcfRecord",
+      "domain_of": [
+        "VcfRecord"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "genome_assembly",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VcfRecord_chrom",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionschrom",
+      "description": "A chromosome or contig identifier.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "chrom",
+      "domain": "VcfRecord",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionschrom",
+      "alias": "chrom",
+      "owner": "VcfRecord",
+      "domain_of": [
+        "VcfRecord"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "chrom",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VcfRecord_pos",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionspos",
+      "description": "The reference residue-coordinate position, with the first residue having position 1.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "pos",
+      "domain": "VcfRecord",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionspos",
+      "alias": "pos",
+      "owner": "VcfRecord",
+      "domain_of": [
+        "VcfRecord"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "pos",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VcfRecord_id",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsid",
+      "description": "A semicolon-separated list of unique identifiers where available. For example, dbSNP rsIDs. We RECOMMEND storing this information as a list in the VariationDescriptor `xrefs` field.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "id",
+      "domain": "VcfRecord",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsid",
+      "alias": "id",
+      "owner": "VcfRecord",
+      "domain_of": [
+        "VcfRecord"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "id",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VcfRecord_ref",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsref",
+      "description": "Reference base as expected by the VCF specification.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "ref",
+      "domain": "VcfRecord",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsref",
+      "alias": "ref",
+      "owner": "VcfRecord",
+      "domain_of": [
+        "VcfRecord"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "ref",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VcfRecord_alt",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsalt",
+      "description": "Alternate base as expected by the VCF specification.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "alt",
+      "domain": "VcfRecord",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsalt",
+      "alias": "alt",
+      "owner": "VcfRecord",
+      "domain_of": [
+        "VcfRecord"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "alt",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VcfRecord_qual",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsqual",
+      "description": "Quality: Phred-scaled quality score for the assertion made in ALT.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "qual",
+      "domain": "VcfRecord",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsqual",
+      "alias": "qual",
+      "owner": "VcfRecord",
+      "domain_of": [
+        "VcfRecord"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "qual",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VcfRecord_filter",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsfilter",
+      "description": "Filter status: PASS if this position has passed all filters.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "filter",
+      "domain": "VcfRecord",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsfilter",
+      "alias": "filter",
+      "owner": "VcfRecord",
+      "domain_of": [
+        "VcfRecord"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "filter",
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "VcfRecord_info",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsinfo",
+      "description": "Additional information: Semicolon-separated series of additional information fields.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "is_a": "info",
+      "domain": "VcfRecord",
+      "slot_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsinfo",
+      "alias": "info",
+      "owner": "VcfRecord",
+      "domain_of": [
+        "VcfRecord"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "info",
+      "range": "string",
+      "@type": "SlotDefinition"
+    }
+  ],
+  "classes": [
+    {
+      "name": "CategoricalVariation",
+      "definition_uri": "https://example.org/GA4GH-Categorical-Variation-DefinitionsCategoricalVariation",
+      "description": "A representation of a categorically-defined  [functional domain](https://en.wikipedia.org/wiki/Domain_of_a_function)  for variation, in which individual variation instances may be members.",
+      "from_schema": "https://example.org/GA4GHCategoricalVariationDefinitions",
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GH-Categorical-Variation-DefinitionsCategoricalVariation",
+      "union_of": [
+        "CanonicalVariation",
+        "ComplexVariation"
+      ],
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ComplexVariation",
+      "definition_uri": "https://example.org/GA4GH-Categorical-Variation-DefinitionsComplexVariation",
+      "description": "A categorical variation domain jointly characterized by two or more other categorical  variation domains.",
+      "from_schema": "https://example.org/GA4GHCategoricalVariationDefinitions",
+      "slots": [
+        "ComplexVariation_catvars_id",
+        "ComplexVariation_catvars_type",
+        "ComplexVariation_operands",
+        "ComplexVariation_operator"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GH-Categorical-Variation-DefinitionsComplexVariation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CanonicalVariation",
+      "definition_uri": "https://example.org/GA4GH-Categorical-Variation-DefinitionsCanonicalVariation",
+      "description": "A categorical variation domain characterized by a representative Variation context  to which members lift-over, project, translate, or otherwise directly align.",
+      "from_schema": "https://example.org/GA4GHCategoricalVariationDefinitions",
+      "slots": [
+        "CanonicalVariation_catvars_id",
+        "CanonicalVariation_catvars_type",
+        "CanonicalVariation_variation"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GH-Categorical-Variation-DefinitionsCanonicalVariation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Variation",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsVariation",
+      "description": "A representation of the state of one or more biomolecules.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsVariation",
+      "union_of": [
+        "MolecularVariation",
+        "SystemicVariation",
+        "UtilityVariation"
+      ],
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "MolecularVariation",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsMolecularVariation",
+      "description": "A variation on a contiguous molecule.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsMolecularVariation",
+      "union_of": [
+        "Allele",
+        "Haplotype"
+      ],
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "UtilityVariation",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsUtilityVariation",
+      "description": "A collection of Variation subclasses that cannot be constrained to a specific class of biological variation, but are necessary for some applications of VRS.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsUtilityVariation",
+      "union_of": [
+        "Text",
+        "VariationSet"
+      ],
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "SystemicVariation",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsSystemicVariation",
+      "description": "A Variation of multiple molecules in the context of a system, e.g. a genome, sample, or homologous chromosomes.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsSystemicVariation",
+      "union_of": [
+        "CopyNumber"
+      ],
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Allele",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsAllele",
+      "description": "The state of a molecule at a Location.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "Allele__id",
+        "Allele_type",
+        "Allele_location",
+        "Allele_state"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsAllele",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Haplotype",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsHaplotype",
+      "description": "A set of non-overlapping Allele members that co-occur on the same molecule.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "Haplotype__id",
+        "Haplotype_type",
+        "Haplotype_members"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsHaplotype",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Text",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsText",
+      "description": "A free-text definition of variation.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "Text__id",
+        "Text_type",
+        "Text_definition"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsText",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "VariationSet",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsVariationSet",
+      "description": "An unconstrained set of Variation members.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "VariationSet__id",
+        "VariationSet_type",
+        "VariationSet_members"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsVariationSet",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CopyNumber",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsCopyNumber",
+      "description": "The absolute count of discrete copies of a MolecularVariation, Feature, SequenceExpression, or a CURIE reference within a system (e.g. genome, cell, etc.).",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "CopyNumber__id",
+        "CopyNumber_type",
+        "CopyNumber_subject",
+        "CopyNumber_copies"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsCopyNumber",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Location",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsLocation",
+      "description": "A contiguous segment of a biological sequence.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsLocation",
+      "union_of": [
+        "ChromosomeLocation",
+        "SequenceLocation"
+      ],
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ChromosomeLocation",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsChromosomeLocation",
+      "description": "A Location on a chromosome defined by a species and chromosome name.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "ChromosomeLocation__id",
+        "ChromosomeLocation_type",
+        "ChromosomeLocation_species_id",
+        "ChromosomeLocation_chr",
+        "ChromosomeLocation_interval"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsChromosomeLocation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "SequenceLocation",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsSequenceLocation",
+      "description": "A Location defined by an interval on a referenced Sequence.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "SequenceLocation__id",
+        "SequenceLocation_type",
+        "SequenceLocation_sequence_id",
+        "SequenceLocation_interval"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsSequenceLocation",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "SequenceInterval",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsSequenceInterval",
+      "description": "A SequenceInterval represents a span on a Sequence. Positions are always represented by contiguous spans using interbase coordinates or coordinate ranges.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "SequenceInterval_type",
+        "SequenceInterval_start",
+        "SequenceInterval_end"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsSequenceInterval",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CytobandInterval",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsCytobandInterval",
+      "description": "A contiguous span on a chromosome defined by cytoband features. The span includes the constituent regions described by the start and end cytobands, as well as any intervening regions.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "CytobandInterval_type",
+        "CytobandInterval_start",
+        "CytobandInterval_end"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsCytobandInterval",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "SequenceExpression",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsSequenceExpression",
+      "description": "An expression describing a Sequence.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsSequenceExpression",
+      "union_of": [
+        "LiteralSequenceExpression",
+        "DerivedSequenceExpression",
+        "RepeatedSequenceExpression",
+        "ComposedSequenceExpression"
+      ],
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "LiteralSequenceExpression",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsLiteralSequenceExpression",
+      "description": "An explicit expression of a Sequence.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "LiteralSequenceExpression_type",
+        "LiteralSequenceExpression_sequence"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsLiteralSequenceExpression",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "DerivedSequenceExpression",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsDerivedSequenceExpression",
+      "description": "An approximate expression of a sequence that is derived from a referenced sequence location. Use of this class indicates that the derived sequence is *approximately equivalent* to the reference indicated, and is typically used for describing large regions in contexts where the use of an approximate sequence is inconsequential.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "DerivedSequenceExpression_type",
+        "DerivedSequenceExpression_location",
+        "DerivedSequenceExpression_reverse_complement"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsDerivedSequenceExpression",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "RepeatedSequenceExpression",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsRepeatedSequenceExpression",
+      "description": "An expression of a sequence comprised of a tandem repeating subsequence.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "RepeatedSequenceExpression_type",
+        "RepeatedSequenceExpression_seq_expr",
+        "RepeatedSequenceExpression_count"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsRepeatedSequenceExpression",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ComposedSequenceExpression",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsComposedSequenceExpression",
+      "description": "An expression of a sequence composed from multiple other  Sequence Expressions  objects. MUST have at least one component that is not a  ref:`LiteralSequenceExpression`. CANNOT be composed from  nested composed sequence expressions.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "ComposedSequenceExpression_type",
+        "ComposedSequenceExpression_components"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsComposedSequenceExpression",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Feature",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsFeature",
+      "description": "A named entity that can be mapped to a Location. Genes, protein domains, exons, and chromosomes are some examples of common biological entities that may be Features.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsFeature",
+      "union_of": [
+        "Gene"
+      ],
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Gene",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsGene",
+      "description": "A reference to a Gene as defined by an authority. For human genes, the use of [hgnc](https://registry.identifiers.org/registry/hgnc) as the gene authority is RECOMMENDED.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "Gene_type",
+        "Gene_gene_id"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsGene",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Number",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsNumber",
+      "description": "A simple integer value as a VRS class.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "Number_type",
+        "Number_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsNumber",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "DefiniteRange",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsDefiniteRange",
+      "description": "A bounded, inclusive range of numbers.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "DefiniteRange_type",
+        "DefiniteRange_min",
+        "DefiniteRange_max"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsDefiniteRange",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "IndefiniteRange",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsIndefiniteRange",
+      "description": "A half-bounded range of numbers represented as a number bound and associated comparator. The bound operator is interpreted as follows: '>=' are all numbers greater than and including `value`, '<=' are all numbers less than and including `value`.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "IndefiniteRange_type",
+        "IndefiniteRange_value",
+        "IndefiniteRange_comparator"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsIndefiniteRange",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CURIE",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsCURIE",
+      "description": "A [W3C Compact URI](https://www.w3.org/TR/curie/) formatted string. A CURIE string has the structure ``prefix``:``reference``, as defined by the W3C syntax.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsCURIE",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "HumanCytoband",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsHumanCytoband",
+      "description": "A character string representing cytobands derived from the *International System for Human Cytogenomic Nomenclature* (ISCN) [guidelines](http://doi.org/10.1159/isbn.978-3-318-06861-0).",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsHumanCytoband",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Residue",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsResidue",
+      "description": "A character representing a specific residue (i.e., molecular species) or groupings of these (\"ambiguity codes\"), using [one-letter IUPAC abbreviations](https://en.wikipedia.org/wiki/International_Union_of_Pure_and_Applied_Chemistry#Amino_acid_and_nucleotide_base_codes) for nucleic acids and amino acids.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsResidue",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Sequence",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsSequence",
+      "description": "A character string of Residues that represents a biological sequence using the conventional sequence order (5\u2019-to-3\u2019 for nucleic acid sequences, and amino-to-carboxyl for amino acid sequences). IUPAC ambiguity codes are permitted in Sequences.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsSequence",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "SequenceState",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsSequenceState",
+      "description": "DEPRECATED. A Sequence as a State. This is the State class to use for representing \"ref-alt\" style variation, including SNVs, MNVs, del, ins, and delins. This class is deprecated. Use LiteralSequenceExpression instead.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "SequenceState_type",
+        "SequenceState_sequence"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsSequenceState",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "SimpleInterval",
+      "definition_uri": "https://example.org/GA4GHVRSDefinitionsSimpleInterval",
+      "description": "DEPRECATED: A SimpleInterval represents a span of sequence. Positions are always represented by contiguous spans using interbase coordinates. This class is deprecated. Use SequenceInterval instead.",
+      "from_schema": "https://example.org/GA4GH-VRS-Definitions",
+      "slots": [
+        "SimpleInterval_type",
+        "SimpleInterval_start",
+        "SimpleInterval_end"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHVRSDefinitionsSimpleInterval",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ValueObjectDescriptor",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsValueObjectDescriptor",
+      "description": "The abstract *Value Object Descriptor* parent class. All attributes of this parent class are inherited by descendent classes.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsValueObjectDescriptor",
+      "union_of": [
+        "#/$defs/VariationDescriptor",
+        "#/$defs/CategoricalVariationDescriptor"
+      ],
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "VariationDescriptor",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsVariationDescriptor",
+      "description": "This descriptor class is used for describing VRS Variation value objects.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slots": [
+        "VariationDescriptor_id",
+        "VariationDescriptor_vrs_type",
+        "VariationDescriptor_label",
+        "VariationDescriptor_description",
+        "VariationDescriptor_xrefs",
+        "VariationDescriptor_alternate_labels",
+        "VariationDescriptor_extensions",
+        "VariationDescriptor_variation_id",
+        "VariationDescriptor_variation",
+        "VariationDescriptor_molecule_context",
+        "VariationDescriptor_structural_type",
+        "VariationDescriptor_expressions",
+        "VariationDescriptor_vcf_record",
+        "VariationDescriptor_gene_context",
+        "VariationDescriptor_vrs_ref_allele_seq",
+        "VariationDescriptor_allelic_state"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsVariationDescriptor",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Extension",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsExtension",
+      "description": "The Extension class provides VODs with a means to extend descriptions with other attributes unique to a content provider. These extensions are not expected to be natively understood under VRSATILE, but may be used for pre-negotiated exchange of message attributes when needed.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slots": [
+        "Extension_vrs_type",
+        "Extension_name",
+        "Extension_vrs_value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsExtension",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Expression",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsExpression",
+      "description": "Representation of a variation by a specified nomenclature or syntax for a Variation object. Common examples of expressions for the description of molecular variation include the HGVS and ISCN nomenclatures.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slots": [
+        "Expression_vrs_type",
+        "Expression_syntax",
+        "Expression_vrs_value",
+        "Expression_syntax_version"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsExpression",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "CategoricalVariationDescriptor",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsCategoricalVariationDescriptor",
+      "description": "This descriptor class is used for describing Categorical Variation vrs_value objects.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slots": [
+        "CategoricalVariationDescriptor_id",
+        "CategoricalVariationDescriptor_vrs_type",
+        "CategoricalVariationDescriptor_label",
+        "CategoricalVariationDescriptor_description",
+        "CategoricalVariationDescriptor_xrefs",
+        "CategoricalVariationDescriptor_alternate_labels",
+        "CategoricalVariationDescriptor_extensions",
+        "CategoricalVariationDescriptor_version",
+        "CategoricalVariationDescriptor_categorical_variation_id",
+        "CategoricalVariationDescriptor_categorical_variation",
+        "CategoricalVariationDescriptor_vrs_members"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsCategoricalVariationDescriptor",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "VariationMember",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsVariationMember",
+      "description": "A compact class for representing a variation context that is a member of a Categorical Variation. It supports one or more Expressions of a Variation and optionally an associated VRS ID.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slots": [
+        "VariationMember_vrs_type",
+        "VariationMember_expressions",
+        "VariationMember_variation_id"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsVariationMember",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "VcfRecord",
+      "definition_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsVcfRecord",
+      "description": "This data class is used when it is desirable to pass data as expected from a VCF record. The class is only used as an optional attribute within a VariationDescriptor. The Genotype field from a VCF should be captured by the `allelic_state` attribute in the Variation Descriptor.",
+      "from_schema": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+      "slots": [
+        "VcfRecord_genome_assembly",
+        "VcfRecord_chrom",
+        "VcfRecord_pos",
+        "VcfRecord_id",
+        "VcfRecord_ref",
+        "VcfRecord_alt",
+        "VcfRecord_qual",
+        "VcfRecord_filter",
+        "VcfRecord_info"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/GA4GHValueObjectDescriptorDefinitionsVcfRecord",
+      "@type": "ClassDefinition"
+    }
+  ],
+  "metamodel_version": "1.7.0",
+  "source_file": "vrsatile.yaml",
+  "source_file_date": "2022-05-16T16:22:40",
+  "source_file_size": 303,
+  "generation_date": "2022-05-16T16:31:02",
+  "@type": "SchemaDefinition",
+  "@context": [
+    "project/jsonld/vrsatile.context.jsonld",
+    "https://w3id.org/linkml/types.context.jsonld",
+    "catvars.context.jsonld",
+    "vrs.context.jsonld",
+    "vod.context.jsonld",
+    {
+      "@base": "https://example.org/vrsatile"
+    }
+  ]
+}

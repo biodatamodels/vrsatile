@@ -1,0 +1,521 @@
+name: GA4GHVRSDefinitions
+id: https://example.org/GA4GH-VRS-Definitions
+imports:
+- linkml:types
+prefixes:
+  GA4GHVRSDefinitions:
+    prefix_prefix: GA4GHVRSDefinitions
+    prefix_reference: https://example.org/GA4GHVRSDefinitions
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+default_prefix: GA4GHVRSDefinitions
+enums:
+  comparator_options:
+    permissible_values:
+      <=:
+        text: <=
+      '>=':
+        text: '>='
+slots:
+  _id:
+    description: Location Id. MUST be unique within document.
+    range: CURIE
+  type:
+    description: MUST be "SimpleInterval"
+    required: true
+  location:
+    description: The location from which the approximate sequence is derived
+    range: SequenceLocation
+    required: true
+  state:
+    description: An expression of the sequence state
+    required: true
+  members:
+    multivalued: true
+    required: true
+  definition:
+    description: A textual representation of variation not representable by other
+      subclasses of Variation.
+    required: true
+  subject:
+    description: Subject of the Copy Number object
+    required: true
+  copies:
+    description: The integral number of copies of the subject in a system
+    required: true
+  species_id:
+    description: 'CURIE representing a species from the [NCBI species taxonomy](https://registry.identifiers.org/registry/taxonomy).
+      Default: "taxonomy:9606" (human)'
+    range: CURIE
+    required: true
+  chr:
+    description: The symbolic chromosome name. For humans, For humans, chromosome
+      names MUST be one of 1..22, X, Y (case-sensitive)
+    required: true
+  interval:
+    description: Reference sequence region defined by a SequenceInterval.
+    required: true
+  sequence_id:
+    description: A VRS Computed Identifier for the reference Sequence.
+    range: CURIE
+    required: true
+  start:
+    description: The start coordinate
+    range: integer
+    required: true
+  end:
+    description: The end coordinate
+    range: integer
+    required: true
+  sequence:
+    description: A string of Residues
+    range: Sequence
+    required: true
+  reverse_complement:
+    description: A flag indicating if the expressed sequence is the reverse complement
+      of the sequence referred to by `location`
+    range: boolean
+    required: true
+  seq_expr:
+    description: An expression of the repeating subsequence
+    required: true
+  count:
+    description: The count of repeated units, as an integer or inclusive range
+    required: true
+  components:
+    multivalued: true
+    required: true
+  gene_id:
+    description: A CURIE reference to a Gene concept
+    range: CURIE
+    required: true
+  value:
+    description: The bounded value; inclusive
+    range: float
+    required: true
+  min:
+    description: The minimum value; inclusive
+    range: float
+    required: true
+  max:
+    description: The maximum value; inclusive
+    range: float
+    required: true
+  comparator:
+    description: MUST be one of "<=" or ">=", indicating which direction the range
+      is indefinite
+    range: comparator_options
+    required: true
+classes:
+  Variation:
+    description: A representation of the state of one or more biomolecules.
+    union_of:
+    - MolecularVariation
+    - SystemicVariation
+    - UtilityVariation
+  MolecularVariation:
+    description: A variation on a contiguous molecule.
+    union_of:
+    - Allele
+    - Haplotype
+  UtilityVariation:
+    description: A collection of Variation subclasses that cannot be constrained to
+      a specific class of biological variation, but are necessary for some applications
+      of VRS.
+    union_of:
+    - Text
+    - VariationSet
+  SystemicVariation:
+    description: A Variation of multiple molecules in the context of a system, e.g.
+      a genome, sample, or homologous chromosomes.
+    union_of:
+    - CopyNumber
+  Allele:
+    description: The state of a molecule at a Location.
+    slots:
+    - _id
+    - type
+    - location
+    - state
+    slot_usage:
+      _id:
+        description: Variation Id. MUST be unique within document.
+        range: CURIE
+      type:
+        description: MUST be "Allele"
+        required: true
+      location:
+        description: Where Allele is located
+        required: true
+      state:
+        description: An expression of the sequence state
+        required: true
+  Haplotype:
+    description: A set of non-overlapping Allele members that co-occur on the same
+      molecule.
+    slots:
+    - _id
+    - type
+    - members
+    slot_usage:
+      _id:
+        description: Variation Id. MUST be unique within document.
+        range: CURIE
+      type:
+        description: MUST be "Haplotype"
+        required: true
+      members:
+        multivalued: true
+        required: true
+  Text:
+    description: A free-text definition of variation.
+    slots:
+    - _id
+    - type
+    - definition
+    slot_usage:
+      _id:
+        description: Variation Id. MUST be unique within document.
+        range: CURIE
+      type:
+        description: MUST be "Text"
+        required: true
+      definition:
+        description: A textual representation of variation not representable by other
+          subclasses of Variation.
+        required: true
+  VariationSet:
+    description: An unconstrained set of Variation members.
+    slots:
+    - _id
+    - type
+    - members
+    slot_usage:
+      _id:
+        description: Variation Id. MUST be unique within document.
+        range: CURIE
+      type:
+        description: MUST be "VariationSet"
+        required: true
+      members:
+        multivalued: true
+        required: true
+  CopyNumber:
+    description: The absolute count of discrete copies of a MolecularVariation, Feature,
+      SequenceExpression, or a CURIE reference within a system (e.g. genome, cell,
+      etc.).
+    slots:
+    - _id
+    - type
+    - subject
+    - copies
+    slot_usage:
+      _id:
+        description: Variation Id. MUST be unique within document.
+        range: CURIE
+      type:
+        description: MUST be "CopyNumber"
+        required: true
+      subject:
+        description: Subject of the Copy Number object
+        required: true
+      copies:
+        description: The integral number of copies of the subject in a system
+        required: true
+  Location:
+    description: A contiguous segment of a biological sequence.
+    union_of:
+    - ChromosomeLocation
+    - SequenceLocation
+  ChromosomeLocation:
+    description: A Location on a chromosome defined by a species and chromosome name.
+    slots:
+    - _id
+    - type
+    - species_id
+    - chr
+    - interval
+    slot_usage:
+      _id:
+        description: Location Id. MUST be unique within document.
+        range: CURIE
+      type:
+        description: MUST be "ChromosomeLocation"
+        required: true
+      species_id:
+        description: 'CURIE representing a species from the [NCBI species taxonomy](https://registry.identifiers.org/registry/taxonomy).
+          Default: "taxonomy:9606" (human)'
+        range: CURIE
+        required: true
+      chr:
+        description: The symbolic chromosome name. For humans, For humans, chromosome
+          names MUST be one of 1..22, X, Y (case-sensitive)
+        required: true
+      interval:
+        description: The chromosome region defined by a CytobandInterval
+        range: CytobandInterval
+        required: true
+  SequenceLocation:
+    description: A Location defined by an interval on a referenced Sequence.
+    slots:
+    - _id
+    - type
+    - sequence_id
+    - interval
+    slot_usage:
+      _id:
+        description: Location Id. MUST be unique within document.
+        range: CURIE
+      type:
+        description: MUST be "SequenceLocation"
+        required: true
+      sequence_id:
+        description: A VRS Computed Identifier for the reference Sequence.
+        range: CURIE
+        required: true
+      interval:
+        description: Reference sequence region defined by a SequenceInterval.
+        required: true
+  SequenceInterval:
+    description: A SequenceInterval represents a span on a Sequence. Positions are
+      always represented by contiguous spans using interbase coordinates or coordinate
+      ranges.
+    slots:
+    - type
+    - start
+    - end
+    slot_usage:
+      type:
+        description: MUST be "SequenceInterval"
+        required: true
+      start:
+        description: The start coordinate or range of the interval. The minimum value
+          of this coordinate or range is 0. MUST represent a coordinate or range less
+          than the value of `end`.
+        required: true
+      end:
+        description: The end coordinate or range of the interval. The minimum value
+          of this coordinate or range is 0. MUST represent a coordinate or range greater
+          than the value of `start`.
+        required: true
+  CytobandInterval:
+    description: A contiguous span on a chromosome defined by cytoband features. The
+      span includes the constituent regions described by the start and end cytobands,
+      as well as any intervening regions.
+    slots:
+    - type
+    - start
+    - end
+    slot_usage:
+      type:
+        description: MUST be "CytobandInterval"
+        required: true
+      start:
+        description: The start cytoband region. MUST specify a region nearer the terminal
+          end (telomere) of the chromosome p-arm than `end`.
+        range: HumanCytoband
+        required: true
+      end:
+        description: The start cytoband region. MUST specify a region nearer the terminal
+          end (telomere) of the chromosome q-arm than `start`.
+        range: HumanCytoband
+        required: true
+  SequenceExpression:
+    description: An expression describing a Sequence.
+    union_of:
+    - LiteralSequenceExpression
+    - DerivedSequenceExpression
+    - RepeatedSequenceExpression
+    - ComposedSequenceExpression
+  LiteralSequenceExpression:
+    description: An explicit expression of a Sequence.
+    slots:
+    - type
+    - sequence
+    slot_usage:
+      type:
+        description: MUST be "LiteralSequenceExpression"
+        required: true
+      sequence:
+        description: the literal Sequence expressed
+        range: Sequence
+        required: true
+  DerivedSequenceExpression:
+    description: An approximate expression of a sequence that is derived from a referenced
+      sequence location. Use of this class indicates that the derived sequence is
+      *approximately equivalent* to the reference indicated, and is typically used
+      for describing large regions in contexts where the use of an approximate sequence
+      is inconsequential.
+    slots:
+    - type
+    - location
+    - reverse_complement
+    slot_usage:
+      type:
+        description: MUST be "DerivedSequenceExpression"
+        required: true
+      location:
+        description: The location from which the approximate sequence is derived
+        range: SequenceLocation
+        required: true
+      reverse_complement:
+        description: A flag indicating if the expressed sequence is the reverse complement
+          of the sequence referred to by `location`
+        range: boolean
+        required: true
+  RepeatedSequenceExpression:
+    description: An expression of a sequence comprised of a tandem repeating subsequence.
+    slots:
+    - type
+    - seq_expr
+    - count
+    slot_usage:
+      type:
+        description: MUST be "RepeatedSequenceExpression"
+        required: true
+      seq_expr:
+        description: An expression of the repeating subsequence
+        required: true
+      count:
+        description: The count of repeated units, as an integer or inclusive range
+        required: true
+  ComposedSequenceExpression:
+    description: An expression of a sequence composed from multiple other  Sequence
+      Expressions  objects. MUST have at least one component that is not a  ref:`LiteralSequenceExpression`.
+      CANNOT be composed from  nested composed sequence expressions.
+    slots:
+    - type
+    - components
+    slot_usage:
+      type:
+        description: MUST be "ComposedSequenceExpression"
+        required: true
+      components:
+        multivalued: true
+        required: true
+  Feature:
+    description: A named entity that can be mapped to a Location. Genes, protein domains,
+      exons, and chromosomes are some examples of common biological entities that
+      may be Features.
+    union_of:
+    - Gene
+  Gene:
+    description: A reference to a Gene as defined by an authority. For human genes,
+      the use of [hgnc](https://registry.identifiers.org/registry/hgnc) as the gene
+      authority is RECOMMENDED.
+    slots:
+    - type
+    - gene_id
+    slot_usage:
+      type:
+        description: MUST be "Gene"
+        required: true
+      gene_id:
+        description: A CURIE reference to a Gene concept
+        range: CURIE
+        required: true
+  Number:
+    description: A simple integer value as a VRS class.
+    slots:
+    - type
+    - value
+    slot_usage:
+      type:
+        description: MUST be "Number"
+        required: true
+      value:
+        description: The value represented by Number
+        range: integer
+        required: true
+  DefiniteRange:
+    description: A bounded, inclusive range of numbers.
+    slots:
+    - type
+    - min
+    - max
+    slot_usage:
+      type:
+        description: MUST be "DefiniteRange"
+        required: true
+      min:
+        description: The minimum value; inclusive
+        range: float
+        required: true
+      max:
+        description: The maximum value; inclusive
+        range: float
+        required: true
+  IndefiniteRange:
+    description: 'A half-bounded range of numbers represented as a number bound and
+      associated comparator. The bound operator is interpreted as follows: ''>=''
+      are all numbers greater than and including `value`, ''<='' are all numbers less
+      than and including `value`.'
+    slots:
+    - type
+    - value
+    - comparator
+    slot_usage:
+      type:
+        description: MUST be "IndefiniteRange"
+        required: true
+      value:
+        description: The bounded value; inclusive
+        range: float
+        required: true
+      comparator:
+        description: MUST be one of "<=" or ">=", indicating which direction the range
+          is indefinite
+        range: comparator_options
+        required: true
+  CURIE:
+    description: A [W3C Compact URI](https://www.w3.org/TR/curie/) formatted string.
+      A CURIE string has the structure ``prefix``:``reference``, as defined by the
+      W3C syntax.
+  HumanCytoband:
+    description: A character string representing cytobands derived from the *International
+      System for Human Cytogenomic Nomenclature* (ISCN) [guidelines](http://doi.org/10.1159/isbn.978-3-318-06861-0).
+  Residue:
+    description: A character representing a specific residue (i.e., molecular species)
+      or groupings of these ("ambiguity codes"), using [one-letter IUPAC abbreviations](https://en.wikipedia.org/wiki/International_Union_of_Pure_and_Applied_Chemistry#Amino_acid_and_nucleotide_base_codes)
+      for nucleic acids and amino acids.
+  Sequence:
+    description: "A character string of Residues that represents a biological sequence\
+      \ using the conventional sequence order (5\u2019-to-3\u2019 for nucleic acid\
+      \ sequences, and amino-to-carboxyl for amino acid sequences). IUPAC ambiguity\
+      \ codes are permitted in Sequences."
+  SequenceState:
+    description: DEPRECATED. A Sequence as a State. This is the State class to use
+      for representing "ref-alt" style variation, including SNVs, MNVs, del, ins,
+      and delins. This class is deprecated. Use LiteralSequenceExpression instead.
+    slots:
+    - type
+    - sequence
+    slot_usage:
+      type:
+        description: MUST be "SequenceState"
+        required: true
+      sequence:
+        description: A string of Residues
+        range: Sequence
+        required: true
+  SimpleInterval:
+    description: 'DEPRECATED: A SimpleInterval represents a span of sequence. Positions
+      are always represented by contiguous spans using interbase coordinates. This
+      class is deprecated. Use SequenceInterval instead.'
+    slots:
+    - type
+    - start
+    - end
+    slot_usage:
+      type:
+        description: MUST be "SimpleInterval"
+        required: true
+      start:
+        description: The start coordinate
+        range: integer
+        required: true
+      end:
+        description: The end coordinate
+        range: integer
+        required: true
