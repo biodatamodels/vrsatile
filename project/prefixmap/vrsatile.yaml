@@ -1,0 +1,127 @@
+{
+   "GA4GHCategoricalVariationDefinitions": "https://example.org/GA4GH-Categorical-Variation-Definitions",
+   "GA4GHVRSDefinitions": "https://example.org/GA4GHVRSDefinitions",
+   "GA4GHValueObjectDescriptorDefinitions": "https://example.org/GA4GHValueObjectDescriptorDefinitions",
+   "linkml": "https://w3id.org/linkml/",
+   "vrsatile": "https://example.org/vrsatile",
+   "Allele": {
+      "@id": "GA4GHVRSDefinitions:Allele"
+   },
+   "CanonicalVariation": {
+      "@id": "GA4GHCategoricalVariationDefinitions:CanonicalVariation"
+   },
+   "CategoricalVariation": {
+      "@id": "GA4GHCategoricalVariationDefinitions:CategoricalVariation"
+   },
+   "CategoricalVariationDescriptor": {
+      "@id": "GA4GHValueObjectDescriptorDefinitions:CategoricalVariationDescriptor"
+   },
+   "ChromosomeLocation": {
+      "@id": "GA4GHVRSDefinitions:ChromosomeLocation"
+   },
+   "ComplexVariation": {
+      "@id": "GA4GHCategoricalVariationDefinitions:ComplexVariation"
+   },
+   "ComposedSequenceExpression": {
+      "@id": "GA4GHVRSDefinitions:ComposedSequenceExpression"
+   },
+   "CopyNumber": {
+      "@id": "GA4GHVRSDefinitions:CopyNumber"
+   },
+   "CURIE": {
+      "@id": "GA4GHVRSDefinitions:CURIE"
+   },
+   "CytobandInterval": {
+      "@id": "GA4GHVRSDefinitions:CytobandInterval"
+   },
+   "DefiniteRange": {
+      "@id": "GA4GHVRSDefinitions:DefiniteRange"
+   },
+   "DerivedSequenceExpression": {
+      "@id": "GA4GHVRSDefinitions:DerivedSequenceExpression"
+   },
+   "Expression": {
+      "@id": "GA4GHValueObjectDescriptorDefinitions:Expression"
+   },
+   "Extension": {
+      "@id": "GA4GHValueObjectDescriptorDefinitions:Extension"
+   },
+   "Feature": {
+      "@id": "GA4GHVRSDefinitions:Feature"
+   },
+   "Gene": {
+      "@id": "GA4GHVRSDefinitions:Gene"
+   },
+   "Haplotype": {
+      "@id": "GA4GHVRSDefinitions:Haplotype"
+   },
+   "HumanCytoband": {
+      "@id": "GA4GHVRSDefinitions:HumanCytoband"
+   },
+   "IndefiniteRange": {
+      "@id": "GA4GHVRSDefinitions:IndefiniteRange"
+   },
+   "LiteralSequenceExpression": {
+      "@id": "GA4GHVRSDefinitions:LiteralSequenceExpression"
+   },
+   "Location": {
+      "@id": "GA4GHVRSDefinitions:Location"
+   },
+   "MolecularVariation": {
+      "@id": "GA4GHVRSDefinitions:MolecularVariation"
+   },
+   "Number": {
+      "@id": "GA4GHVRSDefinitions:Number"
+   },
+   "RepeatedSequenceExpression": {
+      "@id": "GA4GHVRSDefinitions:RepeatedSequenceExpression"
+   },
+   "Residue": {
+      "@id": "GA4GHVRSDefinitions:Residue"
+   },
+   "Sequence": {
+      "@id": "GA4GHVRSDefinitions:Sequence"
+   },
+   "SequenceExpression": {
+      "@id": "GA4GHVRSDefinitions:SequenceExpression"
+   },
+   "SequenceInterval": {
+      "@id": "GA4GHVRSDefinitions:SequenceInterval"
+   },
+   "SequenceLocation": {
+      "@id": "GA4GHVRSDefinitions:SequenceLocation"
+   },
+   "SequenceState": {
+      "@id": "GA4GHVRSDefinitions:SequenceState"
+   },
+   "SimpleInterval": {
+      "@id": "GA4GHVRSDefinitions:SimpleInterval"
+   },
+   "SystemicVariation": {
+      "@id": "GA4GHVRSDefinitions:SystemicVariation"
+   },
+   "Text": {
+      "@id": "GA4GHVRSDefinitions:Text"
+   },
+   "UtilityVariation": {
+      "@id": "GA4GHVRSDefinitions:UtilityVariation"
+   },
+   "ValueObjectDescriptor": {
+      "@id": "GA4GHValueObjectDescriptorDefinitions:ValueObjectDescriptor"
+   },
+   "Variation": {
+      "@id": "GA4GHVRSDefinitions:Variation"
+   },
+   "VariationDescriptor": {
+      "@id": "GA4GHValueObjectDescriptorDefinitions:VariationDescriptor"
+   },
+   "VariationMember": {
+      "@id": "GA4GHValueObjectDescriptorDefinitions:VariationMember"
+   },
+   "VariationSet": {
+      "@id": "GA4GHVRSDefinitions:VariationSet"
+   },
+   "VcfRecord": {
+      "@id": "GA4GHValueObjectDescriptorDefinitions:VcfRecord"
+   }
+}

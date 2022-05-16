@@ -1,0 +1,429 @@
+BASE <https://example.org/vrsatile/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX linkml: <https://w3id.org/linkml/>
+
+
+linkml:String xsd:string
+
+linkml:Integer xsd:integer
+
+linkml:Boolean xsd:boolean
+
+linkml:Float xsd:float
+
+linkml:Double xsd:double
+
+linkml:Decimal xsd:decimal
+
+linkml:Time xsd:dateTime
+
+linkml:Date xsd:date
+
+linkml:Datetime xsd:dateTime
+
+linkml:Uriorcurie IRI
+
+linkml:Uri IRI
+
+linkml:Ncname xsd:string
+
+linkml:Objectidentifier IRI
+
+linkml:Nodeidentifier NONLITERAL
+
+<https://example.org/GA4GHVRSDefinitionsAllele> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsAllele_tes> (  <https://example.org/GA4GHVRSDefinitions_id>
+          @<https://example.org/GA4GHVRSDefinitionsCURIE> ? ;
+          <https://example.org/GA4GHVRSDefinitionstype> @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionslocation> @<https://example.org/GA4GHVRSDefinitionsSequenceLocation> ;
+          <https://example.org/GA4GHVRSDefinitionsstate> @linkml:String
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsAllele> ] ?
+    )
+}
+
+<https://example.org/GA4GH-Categorical-Variation-DefinitionsCanonicalVariation> CLOSED {
+    (  $<https://example.org/GA4GH-Categorical-Variation-DefinitionsCanonicalVariation_tes> ( 
+          <https://example.org/GA4GH-Categorical-Variation-Definitionscatvars_id> @linkml:String ? ;
+          <https://example.org/GA4GH-Categorical-Variation-Definitionscatvars_type> @linkml:String ;
+          <https://example.org/GA4GH-Categorical-Variation-Definitionsvariation>
+          @<https://example.org/GA4GHVRSDefinitionsVariation>
+       ) ;
+       rdf:type [ <https://example.org/GA4GH-Categorical-Variation-DefinitionsCanonicalVariation> ] ?
+    )
+}
+
+<https://example.org/GA4GH-Categorical-Variation-DefinitionsCategoricalVariation> CLOSED {
+    (  $<https://example.org/GA4GH-Categorical-Variation-DefinitionsCategoricalVariation_tes> rdf:type . * ;
+       rdf:type [ <https://example.org/GA4GH-Categorical-Variation-DefinitionsCategoricalVariation> ] ?
+    )
+}
+
+<https://example.org/GA4GHValueObjectDescriptorDefinitionsCategoricalVariationDescriptor> CLOSED {
+    (  $<https://example.org/GA4GHValueObjectDescriptorDefinitionsCategoricalVariationDescriptor_tes> ( 
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsid> @<https://example.org/GA4GHVRSDefinitionsCURIE> ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type> @linkml:String ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionslabel> @linkml:String ? ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsdescription> @linkml:String ? ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsxrefs> @<https://example.org/GA4GHVRSDefinitionsCURIE> * ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsalternate_labels> @linkml:String * ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsextensions>
+          @<https://example.org/GA4GHValueObjectDescriptorDefinitionsExtension> * ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsversion> @linkml:String ? ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionscategorical_variation_id>
+          @<https://example.org/GA4GHVRSDefinitionsCURIE> ? ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionscategorical_variation>
+          @<https://example.org/GA4GH-Categorical-Variation-DefinitionsCategoricalVariation> ? ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_members>
+          @<https://example.org/GA4GHValueObjectDescriptorDefinitionsVariationMember> *
+       ) ;
+       rdf:type [ <https://example.org/GA4GHValueObjectDescriptorDefinitionsCategoricalVariationDescriptor> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsChromosomeLocation> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsChromosomeLocation_tes> (  <https://example.org/GA4GHVRSDefinitions_id>
+          @<https://example.org/GA4GHVRSDefinitionsCURIE> ? ;
+          <https://example.org/GA4GHVRSDefinitionstype> @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionsspecies_id> @<https://example.org/GA4GHVRSDefinitionsCURIE> ;
+          <https://example.org/GA4GHVRSDefinitionschr> @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionsinterval> @<https://example.org/GA4GHVRSDefinitionsCytobandInterval>
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsChromosomeLocation> ] ?
+    )
+}
+
+<https://example.org/GA4GH-Categorical-Variation-DefinitionsComplexVariation> CLOSED {
+    (  $<https://example.org/GA4GH-Categorical-Variation-DefinitionsComplexVariation_tes> ( 
+          <https://example.org/GA4GH-Categorical-Variation-Definitionscatvars_id> @linkml:String ? ;
+          <https://example.org/GA4GH-Categorical-Variation-Definitionscatvars_type> @linkml:String ;
+          <https://example.org/GA4GH-Categorical-Variation-Definitionsoperands>
+          @<https://example.org/GA4GH-Categorical-Variation-DefinitionsCategoricalVariation> + ;
+          <https://example.org/GA4GH-Categorical-Variation-Definitionsoperator>
+          @<https://example.org/GA4GH-Categorical-Variation-DefinitionsOperatorOptions>
+       ) ;
+       rdf:type [ <https://example.org/GA4GH-Categorical-Variation-DefinitionsComplexVariation> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsComposedSequenceExpression> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsComposedSequenceExpression_tes> (  <https://example.org/GA4GHVRSDefinitionstype>
+          @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionscomponents> @linkml:String +
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsComposedSequenceExpression> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsCopyNumber> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsCopyNumber_tes> (  <https://example.org/GA4GHVRSDefinitions_id>
+          @<https://example.org/GA4GHVRSDefinitionsCURIE> ? ;
+          <https://example.org/GA4GHVRSDefinitionstype> @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionssubject> @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionscopies> @linkml:String
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsCopyNumber> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsCURIE> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsCURIE_tes> rdf:type . * ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsCURIE> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsCytobandInterval> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsCytobandInterval_tes> (  <https://example.org/GA4GHVRSDefinitionstype>
+          @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionsstart> @<https://example.org/GA4GHVRSDefinitionsHumanCytoband> ;
+          <https://example.org/GA4GHVRSDefinitionsend> @<https://example.org/GA4GHVRSDefinitionsHumanCytoband>
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsCytobandInterval> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsDefiniteRange> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsDefiniteRange_tes> (  <https://example.org/GA4GHVRSDefinitionstype> @linkml:String
+          ;
+          <https://example.org/GA4GHVRSDefinitionsmin> @linkml:Float ;
+          <https://example.org/GA4GHVRSDefinitionsmax> @linkml:Float
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsDefiniteRange> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsDerivedSequenceExpression> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsDerivedSequenceExpression_tes> (  <https://example.org/GA4GHVRSDefinitionstype>
+          @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionslocation> @<https://example.org/GA4GHVRSDefinitionsSequenceLocation> ;
+          <https://example.org/GA4GHVRSDefinitionsreverse_complement> @linkml:Boolean
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsDerivedSequenceExpression> ] ?
+    )
+}
+
+<https://example.org/GA4GHValueObjectDescriptorDefinitionsExpression> CLOSED {
+    (  $<https://example.org/GA4GHValueObjectDescriptorDefinitionsExpression_tes> ( 
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type> @linkml:String ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionssyntax>
+          @<https://example.org/GA4GHValueObjectDescriptorDefinitionsSyntaxOptions> ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_value> @linkml:String ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionssyntax_version> @linkml:String ?
+       ) ;
+       rdf:type [ <https://example.org/GA4GHValueObjectDescriptorDefinitionsExpression> ] ?
+    )
+}
+
+<https://example.org/GA4GHValueObjectDescriptorDefinitionsExtension> CLOSED {
+    (  $<https://example.org/GA4GHValueObjectDescriptorDefinitionsExtension_tes> ( 
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type> @linkml:String ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsname> @linkml:String ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_value> @linkml:String
+       ) ;
+       rdf:type [ <https://example.org/GA4GHValueObjectDescriptorDefinitionsExtension> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsFeature> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsFeature_tes> rdf:type . * ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsFeature> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsGene> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsGene_tes> (  <https://example.org/GA4GHVRSDefinitionstype> @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionsgene_id> @<https://example.org/GA4GHVRSDefinitionsCURIE>
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsGene> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsHaplotype> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsHaplotype_tes> (  <https://example.org/GA4GHVRSDefinitions_id>
+          @<https://example.org/GA4GHVRSDefinitionsCURIE> ? ;
+          <https://example.org/GA4GHVRSDefinitionstype> @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionsmembers> @linkml:String +
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsHaplotype> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsHumanCytoband> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsHumanCytoband_tes> rdf:type . * ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsHumanCytoband> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsIndefiniteRange> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsIndefiniteRange_tes> (  <https://example.org/GA4GHVRSDefinitionstype>
+          @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionsvalue> @linkml:Float ;
+          <https://example.org/GA4GHVRSDefinitionscomparator> @<https://example.org/GA4GHVRSDefinitionsComparatorOptions>
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsIndefiniteRange> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsLiteralSequenceExpression> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsLiteralSequenceExpression_tes> (  <https://example.org/GA4GHVRSDefinitionstype>
+          @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionssequence> @<https://example.org/GA4GHVRSDefinitionsSequence>
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsLiteralSequenceExpression> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsLocation> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsLocation_tes> rdf:type . * ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsLocation> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsMolecularVariation> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsMolecularVariation_tes> rdf:type . * ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsMolecularVariation> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsNumber> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsNumber_tes> (  <https://example.org/GA4GHVRSDefinitionstype> @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionsvalue> @linkml:Integer
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsNumber> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsRepeatedSequenceExpression> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsRepeatedSequenceExpression_tes> (  <https://example.org/GA4GHVRSDefinitionstype>
+          @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionsseq_expr> @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionscount> @linkml:String
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsRepeatedSequenceExpression> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsResidue> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsResidue_tes> rdf:type . * ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsResidue> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsSequence> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsSequence_tes> rdf:type . * ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsSequence> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsSequenceExpression> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsSequenceExpression_tes> rdf:type . * ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsSequenceExpression> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsSequenceInterval> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsSequenceInterval_tes> (  <https://example.org/GA4GHVRSDefinitionstype>
+          @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionsstart> @linkml:Integer ;
+          <https://example.org/GA4GHVRSDefinitionsend> @linkml:Integer
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsSequenceInterval> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsSequenceLocation> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsSequenceLocation_tes> (  <https://example.org/GA4GHVRSDefinitions_id>
+          @<https://example.org/GA4GHVRSDefinitionsCURIE> ? ;
+          <https://example.org/GA4GHVRSDefinitionstype> @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionssequence_id> @<https://example.org/GA4GHVRSDefinitionsCURIE> ;
+          <https://example.org/GA4GHVRSDefinitionsinterval> @linkml:String
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsSequenceLocation> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsSequenceState> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsSequenceState_tes> (  <https://example.org/GA4GHVRSDefinitionstype> @linkml:String
+          ;
+          <https://example.org/GA4GHVRSDefinitionssequence> @<https://example.org/GA4GHVRSDefinitionsSequence>
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsSequenceState> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsSimpleInterval> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsSimpleInterval_tes> (  <https://example.org/GA4GHVRSDefinitionstype> @linkml:String
+          ;
+          <https://example.org/GA4GHVRSDefinitionsstart> @linkml:Integer ;
+          <https://example.org/GA4GHVRSDefinitionsend> @linkml:Integer
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsSimpleInterval> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsSystemicVariation> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsSystemicVariation_tes> rdf:type . * ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsSystemicVariation> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsText> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsText_tes> (  <https://example.org/GA4GHVRSDefinitions_id>
+          @<https://example.org/GA4GHVRSDefinitionsCURIE> ? ;
+          <https://example.org/GA4GHVRSDefinitionstype> @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionsdefinition> @linkml:String
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsText> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsUtilityVariation> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsUtilityVariation_tes> rdf:type . * ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsUtilityVariation> ] ?
+    )
+}
+
+<https://example.org/GA4GHValueObjectDescriptorDefinitionsValueObjectDescriptor> CLOSED {
+    (  $<https://example.org/GA4GHValueObjectDescriptorDefinitionsValueObjectDescriptor_tes> rdf:type . * ;
+       rdf:type [ <https://example.org/GA4GHValueObjectDescriptorDefinitionsValueObjectDescriptor> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsVariation> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsVariation_tes> rdf:type . * ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsVariation> ] ?
+    )
+}
+
+<https://example.org/GA4GHValueObjectDescriptorDefinitionsVariationDescriptor> CLOSED {
+    (  $<https://example.org/GA4GHValueObjectDescriptorDefinitionsVariationDescriptor_tes> ( 
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsid> @<https://example.org/GA4GHVRSDefinitionsCURIE> ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type>
+          @<https://example.org/GA4GHValueObjectDescriptorDefinitionsTypeOptions> ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionslabel> @linkml:String ? ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsdescription> @linkml:String ? ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsxrefs> @<https://example.org/GA4GHVRSDefinitionsCURIE> * ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsalternate_labels> @linkml:String * ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsextensions>
+          @<https://example.org/GA4GHValueObjectDescriptorDefinitionsExtension> * ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsvariation_id> @<https://example.org/GA4GHVRSDefinitionsCURIE> ?
+          ;
+          <https://example.org/GA4GH-Categorical-Variation-Definitionsvariation>
+          @<https://example.org/GA4GHVRSDefinitionsVariation> ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsmolecule_context>
+          @<https://example.org/GA4GHValueObjectDescriptorDefinitionsMoleculeContextOptions> ? ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsstructural_type>
+          @<https://example.org/GA4GHVRSDefinitionsCURIE> ? ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsexpressions>
+          @<https://example.org/GA4GHValueObjectDescriptorDefinitionsExpression> + ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsvcf_record>
+          @<https://example.org/GA4GHValueObjectDescriptorDefinitionsVcfRecord> ? ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsgene_context> @linkml:String ? ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_ref_allele_seq>
+          @<https://example.org/GA4GHVRSDefinitionsSequence> ? ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsallelic_state> @<https://example.org/GA4GHVRSDefinitionsCURIE>
+          ?
+       ) ;
+       rdf:type [ <https://example.org/GA4GHValueObjectDescriptorDefinitionsVariationDescriptor> ] ?
+    )
+}
+
+<https://example.org/GA4GHValueObjectDescriptorDefinitionsVariationMember> CLOSED {
+    (  $<https://example.org/GA4GHValueObjectDescriptorDefinitionsVariationMember_tes> ( 
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsvrs_type> @linkml:String ? ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsexpressions>
+          @<https://example.org/GA4GHValueObjectDescriptorDefinitionsExpression> + ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsvariation_id> @<https://example.org/GA4GHVRSDefinitionsCURIE> ?
+       ) ;
+       rdf:type [ <https://example.org/GA4GHValueObjectDescriptorDefinitionsVariationMember> ] ?
+    )
+}
+
+<https://example.org/GA4GHVRSDefinitionsVariationSet> CLOSED {
+    (  $<https://example.org/GA4GHVRSDefinitionsVariationSet_tes> (  <https://example.org/GA4GHVRSDefinitions_id>
+          @<https://example.org/GA4GHVRSDefinitionsCURIE> ? ;
+          <https://example.org/GA4GHVRSDefinitionstype> @linkml:String ;
+          <https://example.org/GA4GHVRSDefinitionsmembers> @linkml:String +
+       ) ;
+       rdf:type [ <https://example.org/GA4GHVRSDefinitionsVariationSet> ] ?
+    )
+}
+
+<https://example.org/GA4GHValueObjectDescriptorDefinitionsVcfRecord> CLOSED {
+    (  $<https://example.org/GA4GHValueObjectDescriptorDefinitionsVcfRecord_tes> ( 
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsgenome_assembly> @linkml:String ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionschrom> @linkml:String ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionspos> @linkml:String ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsid> @linkml:String ? ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsref> @linkml:String ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsalt> @linkml:String ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsqual> @linkml:String ? ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsfilter> @linkml:String ? ;
+          <https://example.org/GA4GHValueObjectDescriptorDefinitionsinfo> @linkml:String ?
+       ) ;
+       rdf:type [ <https://example.org/GA4GHValueObjectDescriptorDefinitionsVcfRecord> ] ?
+    )
+}
+
+

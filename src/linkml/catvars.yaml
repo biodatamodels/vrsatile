@@ -1,0 +1,88 @@
+name: GA4GHCategoricalVariationDefinitions
+id: https://example.org/GA4GHCategoricalVariationDefinitions
+imports:
+- linkml:types
+prefixes:
+  GA4GHCategoricalVariationDefinitions:
+    prefix_prefix: GA4GHCategoricalVariationDefinitions
+    prefix_reference: https://example.org/GA4GH-Categorical-Variation-Definitions
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+default_prefix: GA4GHCategoricalVariationDefinitions
+enums:
+  operator_options:
+    permissible_values:
+      AND:
+        text: AND
+      OR:
+        text: OR
+slots:
+  catvars_id:
+    description: Categorical Variation Id. MUST be unique within document.
+  catvars_type:
+    description: MUST be "CanonicalVariation".
+    required: true
+  operands:
+    multivalued: true
+    range: CategoricalVariation
+    required: true
+  operator:
+    description: The logical operation applied to evaluating the object *operands*.
+      MUST be "AND" or "OR".
+    range: operator_options
+    required: true
+  variation:
+    description: The [VRS Variation](https://vrs.ga4gh.org/en/1.2.1/terms_and_model.html#variation)
+      object to which congruency must be determined.
+    range: Variation
+    required: true
+classes:
+  CategoricalVariation:
+    description: A representation of a categorically-defined  [functional domain](https://en.wikipedia.org/wiki/Domain_of_a_function)  for
+      variation, in which individual variation instances may be members.
+    union_of:
+    - CanonicalVariation
+    - ComplexVariation
+  ComplexVariation:
+    description: A categorical variation domain jointly characterized by two or more
+      other categorical  variation domains.
+    slots:
+    - catvars_id
+    - catvars_type
+    - operands
+    - operator
+    slot_usage:
+      catvars_id:
+        description: Categorical Variation Id. MUST be unique within document.
+      catvars_type:
+        description: MUST be "ComplexVariation".
+        required: true
+      operands:
+        multivalued: true
+        range: CategoricalVariation
+        required: true
+      operator:
+        description: The logical operation applied to evaluating the object *operands*.
+          MUST be "AND" or "OR".
+        range: operator_options
+        required: true
+  CanonicalVariation:
+    description: A categorical variation domain characterized by a representative
+      Variation context  to which members lift-over, project, translate, or otherwise
+      directly align.
+    slots:
+    - catvars_id
+    - catvars_type
+    - variation
+    slot_usage:
+      catvars_id:
+        description: Categorical Variation Id. MUST be unique within document.
+      catvars_type:
+        description: MUST be "CanonicalVariation".
+        required: true
+      variation:
+        description: The [VRS Variation](https://vrs.ga4gh.org/en/1.2.1/terms_and_model.html#variation)
+          object to which congruency must be determined.
+        range: Variation
+        required: true
