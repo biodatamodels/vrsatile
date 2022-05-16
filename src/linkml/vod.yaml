@@ -48,7 +48,7 @@ slots:
     description: A semicolon-separated list of unique identifiers where available.
       For example, dbSNP rsIDs. We RECOMMEND storing this information as a list in
       the VariationDescriptor `xrefs` field.
-  type:
+  vrs_type:
     description: MUST be "VariationMember"
   label:
     description: A primary label for the value object.
@@ -56,17 +56,14 @@ slots:
     description: A free-text description of the value object.
   xrefs:
     multivalued: true
-    range: jsonCURIE
+    range: CURIE
   alternate_labels:
     multivalued: true
   extensions:
     multivalued: true
-    range: '#/$defs/Extension'
+    range: Extension
   variation_id:
-    range: jsonCURIE
-  variation:
-    description: This SHOULD be provided if *variation_id* is omitted.
-    range: jsonVariation
+    range: CURIE
   molecule_context:
     description: The molecular context of this variant. Must be one of "genomic",
       "transcript", or "protein".
@@ -74,7 +71,7 @@ slots:
   structural_type:
     description: The structural variant type associated with this variant. We RECOMMEND
       a descendent term of [SO:0001537](http://www.sequenceontology.org/browser/current_release/term/SO:0001537).
-    range: jsonCURIE
+    range: CURIE
   expressions:
     multivalued: true
     range: Expression
@@ -82,22 +79,22 @@ slots:
   vcf_record:
     description: A VCF Record of the variant. This SHOULD be a single allele, the
       VCF genotype (GT) field should be represented in the *allelic_state* attribute.
-    range: '#/$defs/VcfRecord'
+    range: VcfRecord
   gene_context:
     description: A specific gene context that applies to this variant.
   vrs_ref_allele_seq:
     description: A `VRS Sequence`_ corresponding to a "ref allele", describing the
       sequence expected at a `VRS SequenceLocation`_ reference.
-    range: jsonSequence
+    range: Sequence
   allelic_state:
     description: We RECOMMEND that the *allelic_state* of a variation be described
       by terms from the Genotype Ontology (GENO). These SHOULD descend from concept
       `GENO:0000875 <http://purl.obolibrary.org/obo/GENO_0000875>`.
-    range: jsonCURIE
+    range: CURIE
   name:
     description: A name for the Extension
     required: true
-  value:
+  vrs_value:
     required: true
   syntax:
     range: syntax_options
@@ -107,11 +104,11 @@ slots:
     description: The version of the Categorical Variation Descriptor.
   categorical_variation_id:
     description: This SHOULD be provided if *categorical_variation* is omitted.
-    range: jsonCURIE
+    range: CURIE
   categorical_variation:
     description: This SHOULD be provided if *variation_id* is omitted.
-    range: json/$defs/CategoricalVariation
-  members:
+    range: CategoricalVariation
+  vrs_members:
     multivalued: true
     range: VariationMember
   genome_assembly:
@@ -149,7 +146,7 @@ classes:
       objects.
     slots:
     - id
-    - type
+    - vrs_type
     - label
     - description
     - xrefs
@@ -167,9 +164,9 @@ classes:
     slot_usage:
       id:
         description: Descriptor ID; MUST be unique within document.
-        range: jsonCURIE
+        range: CURIE
         required: true
-      type:
+      vrs_type:
         description: MUST be "VariationDescriptor".
         range: type_options
         required: true
@@ -179,18 +176,18 @@ classes:
         description: A free-text description of the value object.
       xrefs:
         multivalued: true
-        range: jsonCURIE
+        range: CURIE
       alternate_labels:
         multivalued: true
       extensions:
         multivalued: true
-        range: '#/$defs/Extension'
+        range: Extension
       variation_id:
         description: This SHOULD be provided if *variation* is omitted.
-        range: jsonCURIE
+        range: CURIE
       variation:
         description: This SHOULD be provided if *variation_id* is omitted.
-        range: jsonVariation
+        range: Variation
       molecule_context:
         description: The molecular context of this variant. Must be one of "genomic",
           "transcript", or "protein".
@@ -198,69 +195,69 @@ classes:
       structural_type:
         description: The structural variant type associated with this variant. We
           RECOMMEND a descendent term of [SO:0001537](http://www.sequenceontology.org/browser/current_release/term/SO:0001537).
-        range: jsonCURIE
+        range: CURIE
       expressions:
         description: Typically HGVS or ISCN nomenclature expressions. Other systems
           relevant to the description of variation MAY be used.
-        range: '#/$defs/Expression'
+        range: Expression
       vcf_record:
         description: A VCF Record of the variant. This SHOULD be a single allele,
           the VCF genotype (GT) field should be represented in the *allelic_state*
           attribute.
-        range: '#/$defs/VcfRecord'
+        range: VcfRecord
       gene_context:
         description: A specific gene context that applies to this variant.
       vrs_ref_allele_seq:
         description: A `VRS Sequence`_ corresponding to a "ref allele", describing
           the sequence expected at a `VRS SequenceLocation`_ reference.
-        range: jsonSequence
+        range: Sequence
       allelic_state:
         description: We RECOMMEND that the *allelic_state* of a variation be described
           by terms from the Genotype Ontology (GENO). These SHOULD descend from concept
           `GENO:0000875 <http://purl.obolibrary.org/obo/GENO_0000875>`.
-        range: jsonCURIE
+        range: CURIE
   Extension:
     description: The Extension class provides VODs with a means to extend descriptions
       with other attributes unique to a content provider. These extensions are not
       expected to be natively understood under VRSATILE, but may be used for pre-negotiated
       exchange of message attributes when needed.
     slots:
-    - type
+    - vrs_type
     - name
-    - value
+    - vrs_value
     slot_usage:
-      type:
+      vrs_type:
         description: MUST be "Extension".
         required: true
       name:
         description: A name for the Extension
         required: true
-      value:
+      vrs_value:
         description: Any primitive or structured object
   Expression:
     description: Representation of a variation by a specified nomenclature or syntax
       for a Variation object. Common examples of expressions for the description of
       molecular variation include the HGVS and ISCN nomenclatures.
     slots:
-    - type
+    - vrs_type
     - syntax
-    - value
+    - vrs_value
     - syntax_version
     slot_usage:
-      type:
+      vrs_type:
         required: true
       syntax:
         range: syntax_options
         required: true
-      value:
+      vrs_value:
         required: true
       syntax_version: {}
   CategoricalVariationDescriptor:
     description: This descriptor class is used for describing Categorical Variation
-      value objects.
+      vrs_value objects.
     slots:
     - id
-    - type
+    - vrs_type
     - label
     - description
     - xrefs
@@ -269,13 +266,13 @@ classes:
     - version
     - categorical_variation_id
     - categorical_variation
-    - members
+    - vrs_members
     slot_usage:
       id:
         description: Descriptor ID; MUST be unique within document.
-        range: jsonCURIE
+        range: CURIE
         required: true
-      type:
+      vrs_type:
         description: MUST be "VariationDescriptor".
         required: true
       label:
@@ -284,21 +281,21 @@ classes:
         description: A free-text description of the value object.
       xrefs:
         multivalued: true
-        range: jsonCURIE
+        range: CURIE
       alternate_labels:
         multivalued: true
       extensions:
         multivalued: true
-        range: '#/$defs/Extension'
+        range: Extension
       version:
         description: The version of the Categorical Variation Descriptor.
       categorical_variation_id:
         description: This SHOULD be provided if *categorical_variation* is omitted.
-        range: jsonCURIE
+        range: CURIE
       categorical_variation:
         description: This SHOULD be provided if *variation_id* is omitted.
-        range: json/$defs/CategoricalVariation
-      members:
+        range: CategoricalVariation
+      vrs_members:
         multivalued: true
         range: VariationMember
   VariationMember:
@@ -306,18 +303,18 @@ classes:
       of a Categorical Variation. It supports one or more Expressions of a Variation
       and optionally an associated VRS ID.
     slots:
-    - type
+    - vrs_type
     - expressions
     - variation_id
     slot_usage:
-      type:
+      vrs_type:
         description: MUST be "VariationMember"
       expressions:
         multivalued: true
         range: Expression
         required: true
       variation_id:
-        range: jsonCURIE
+        range: CURIE
   VcfRecord:
     description: This data class is used when it is desirable to pass data as expected
       from a VCF record. The class is only used as an optional attribute within a

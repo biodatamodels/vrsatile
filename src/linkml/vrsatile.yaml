@@ -1,0 +1,15 @@
+name: vrsatile
+id: https://example.org/vrsatile
+imports:
+- linkml:types
+- catvars
+- vrs
+- vod
+prefixes:
+  vrsatile:
+    prefix_prefix: vrsatile
+    prefix_reference: https://example.org/vrsatile
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+default_prefix: vrsatile
