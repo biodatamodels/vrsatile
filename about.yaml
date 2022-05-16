@@ -1,3 +1,3 @@
-name: versitile
-description: my awesome datamodel is for awesome things
-source_schema_path: src/linkml/versitile.yaml
+name: vrsatile
+description: Experimental LinkML representation of https://github.com/ga4gh/vrsatile/blob/main/docs/source/index.rst
+source_schema_path: src/linkml/vrsatile.yaml
