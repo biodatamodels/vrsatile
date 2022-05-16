@@ -1,26 +1,10 @@
 site_name: "Experimental representation of vrsatile in LinkML"
 theme:
-  name: material
-  analytics:
-    gtag: G-2SYBSJVZ23
-
+  name: readthedocs
   features:
     - content.tabs.link
 plugins:
   - search
-markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.critic
-  - pymdownx.caret
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.tilde
 nav:
   - Index: index.md
   - About: about.md

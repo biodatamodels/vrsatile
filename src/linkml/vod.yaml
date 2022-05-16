@@ -1,15 +1,15 @@
-name: GA4GH_Value_Object_Descriptor_Definitions
-id: https://example.org/GA4GH-Value-Object-Descriptor-Definitions
+name: GA4GHValueObjectDescriptorDefinitions
+id: https://example.org/GA4GHValueObjectDescriptorDefinitions
 imports:
 - linkml:types
 prefixes:
-  GA4GH_Value_Object_Descriptor_Definitions:
-    prefix_prefix: GA4GH_Value_Object_Descriptor_Definitions
-    prefix_reference: https://example.org/GA4GH-Value-Object-Descriptor-Definitions
+  GA4GHValueObjectDescriptorDefinitions:
+    prefix_prefix: GA4GHValueObjectDescriptorDefinitions
+    prefix_reference: https://example.org/GA4GHValueObjectDescriptorDefinitions
   linkml:
     prefix_prefix: linkml
     prefix_reference: https://w3id.org/linkml/
-default_prefix: GA4GH_Value_Object_Descriptor_Definitions
+default_prefix: GA4GHValueObjectDescriptorDefinitions
 enums:
   type_options:
     permissible_values:

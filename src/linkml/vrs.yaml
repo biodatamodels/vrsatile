@@ -1,15 +1,15 @@
-name: GA4GH_VRS_Definitions
+name: GA4GHVRSDefinitions
 id: https://example.org/GA4GH-VRS-Definitions
 imports:
 - linkml:types
 prefixes:
-  GA4GH_VRS_Definitions:
-    prefix_prefix: GA4GH_VRS_Definitions
-    prefix_reference: https://example.org/GA4GH-VRS-Definitions
+  GA4GHVRSDefinitions:
+    prefix_prefix: GA4GHVRSDefinitions
+    prefix_reference: https://example.org/GA4GHVRSDefinitions
   linkml:
     prefix_prefix: linkml
     prefix_reference: https://w3id.org/linkml/
-default_prefix: GA4GH_VRS_Definitions
+default_prefix: GA4GHVRSDefinitions
 enums:
   comparator_options:
     permissible_values:

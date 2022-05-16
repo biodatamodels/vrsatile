@@ -46,7 +46,7 @@ deploy: all mkd-gh-deploy
 
 # generates all project files
 gen-project: $(PYMODEL)
-	$(RUN) gen-project -d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
+	$(RUN) gen-project --exclude=owl -d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
 
 test:
 	$(RUN) gen-project -d tmp $(SOURCE_SCHEMA_PATH) 
